@@ -16,7 +16,7 @@ module.exports = {
      *
      */
     stringReplace(username) {
-        if (username.length > 3) {
+        if (username.length > 3 && isNaN(username)) {
 
 
             var input = "Hello <<username>> , how are you?";
@@ -24,7 +24,7 @@ module.exports = {
             console.log(output + " : Replace string using Regex ")
         }
         else {
-            console.log("enter minmum 3 char or more");
+            console.log("enter minmum 3 char and alphabetics only");
 
         }
 
