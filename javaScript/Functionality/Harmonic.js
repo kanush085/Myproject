@@ -1,16 +1,15 @@
 /***********************************************************
  *
- * Execution      :Default node    cmd>node stringReplace.js
- * Purpose        :Replace String Template "Hello <<UserName>>, How are you?"with proper username
+ * Execution      :Default node    cmd>node Harmonic.js
+ * Purpose        :To print harmonic number value.
  * 
  *@description 
  * 
  *
- *@file          :stringReplace.js
- *@overview      :stringReplace takes the userinput and print it with some sentence.    
+ *@file          :Harmonic.js
+ *@overview      :Harmonic takes the userinput and prints the Nth harmonic value.    
  *@author name   :Anush Kumar s k <anushk136@gmail.com>
  *@version       :1.0
- *@purpose       :stringReplace
  *@since         :24/01/2019
  * 
  ***********************************************************/
@@ -19,8 +18,8 @@ var Access = require('../Utility/utility');
  * For accessing data from utility file.
  */
 var read = require('readline-sync');
-var name = read.question("Enter your name: ");
+var number = read.question("Enter the number:");
 /**
  * Taking the user input.
  */
-Access.stringReplace(name);//Invoking the stringReplace function.
+Access.harmonic(number);//Invoking the harmonic function.

@@ -1,26 +1,26 @@
 /***********************************************************
  *
- * Execution      :Default node    cmd>node stringReplace.js
- * Purpose        :Replace String Template "Hello <<UserName>>, How are you?"with proper username
+ * Execution      :Default node    cmd>node primeFactors.js
+ * Purpose        :To print primeFactors number.
  * 
  *@description 
  * 
  *
- *@file          :stringReplace.js
- *@overview      :stringReplace takes the userinput and print it with some sentence.    
+ *@file          :primeFactors.js
+ *@overview      :primeFactors takes the userinput and prints the prime factors nubers.    
  *@author name   :Anush Kumar s k <anushk136@gmail.com>
  *@version       :1.0
- *@purpose       :stringReplace
  *@since         :24/01/2019
  * 
  ***********************************************************/
+
 var Access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
 var read = require('readline-sync');
-var name = read.question("Enter your name: ");
+var number = read.question("Enter the number: ");
 /**
  * Taking the user input.
  */
-Access.stringReplace(name);//Invoking the stringReplace function.
+Access.primeFactors(number);//Invoking the primeFactors function.
