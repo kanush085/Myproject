@@ -309,8 +309,16 @@ module.exports = {
             /**
              * Taking user input command line arguments.
              */
-            var distance = Math.sqrt(a * a + b * b);
-            console.log("Distance form Origin is : " + distance);
+
+            if (!isNaN(a) && !isNaN(b)) {
+                var distance = Math.sqrt(a * a + b * b);
+                console.log("Distance form Origin is : " + distance);
+            }
+            else {
+                console.log("enter the number only");
+
+            }
+
         } catch (err) {
             console.log(err.message);
 
@@ -397,6 +405,313 @@ module.exports = {
         }
     },
 
+    /*******************findRootsofEquations*********************/
+    /**
+     * 1.To find the roots of the quations.
+     *  
+     * @description: Take a, b and c as input values to find the roots of x.
+     * 
+     * @purpose:To find real and imaginery parts of the quation. 
+     *  
+     * @function:To find the roots of the equation a*x*x + b*x + c.
+     */
 
+    Qudractic(a, b, c) {
+        try {
+            var d1 = b * b - (4 * a * c);
+            /**
+             * Condition for real and equal roots
+             */
+            if (d1 == 0) {
+                var c1 = -b / (2 * a);
+                console.log(c1);
+
+            }
+            /**
+             *  condition for real and different root
+             */
+            else if (d1 > 0) {
+                var root1 = (-b + Math.sqrt(d1)) / (2 * a);
+                var root2 = (-b - Math.sqrt(d1)) / (2 * a)
+
+                console.log("First root:" + root1);
+                console.log("Second root:" + root2);
+
+            }
+            /**
+             * If roots are not real
+             */
+            else if (d1 < 0) {
+                var real = -b / (2 * a);
+                var impart = Math.sqrt(-d1) / (2 * a);
+                console.log("First root: " + real + " i " + impart);
+                console.log("Second root: " + real + " -i " + impart);
+
+
+            }
+            else {
+                console.log("Something wrong");
+
+            }
+        }
+        catch (err) {
+            console.log(err.message);
+
+        }
+
+    },
+
+
+    /****************findWindchill***************** */
+    /**
+     * 1.To find Wind chill using temperature and speed.
+     * 
+     * @description:Takes the user commands inputs and calculate the windchill using temperature and speed.
+     * 
+     * @purpose:To compute wind chill using formula.
+     * 
+     * @function:Given the temperature t (in Fahrenheit) and the wind speed v
+            (in miles per hour), compute the wind chill.
+     */
+    windChill() {
+        try {
+
+            var t = process.argv[2];
+            var v = process.argv[3];
+            /**
+             * Validating the temperature should not be  larger than 50 in absolute value or if  wind speed is larger 
+             * should be less than 120 or greater than 3 .
+             * 
+             */
+            if (Math.abs(t) < 50 && (v < 120 && v > 3)) {
+
+                var w = 35.74 + 0.6215 * t + (0.4275 * t - 35.75) * Math.pow(v, 0.16);
+                /**
+                 * National Weather Service defines the effective temperature (the wind chill) to be:
+                 */
+                console.log("Temperature :" + t);
+                console.log("Wind speed :" + v)
+                console.log("Wind chill :" + w);
+
+            }
+            else {
+                console.log("Enter proper value");
+
+            }
+        } catch (err) {
+            console.log(err.message);
+
+        }
+
+    },
+    /*****************findTriplets******************* */
+    /**
+     * 1.find three elements whose sum is equal to zero.
+     * 
+     * @description:A program with cubic running time. Read in N integers and counts the   
+     * number of triples that sum to exactly 0.
+     * 
+     *@purpose: Prints all triplets in array with 0 sum.
+     *
+     * @function:Find distinct triples (i, j, k) such that a[i] + a[j] + a[k] = 0.
+     */
+    findTriplets(s1) {
+        try {
+            var find = false;
+            var array = [];
+            var count = 0;
+
+            for (let i = 0; i < s1; i++) {
+                array[i] = readline.question("Enter element :");
+                /**
+                 * Loop over till array size is equal to userinput and
+                 * take the user input elements and push it to array 
+                 * 
+                 */
+            }
+            console.log(array);
+            /**
+             * Looop over till all triplets in arr[] with 0 sum 
+             */
+            for (let i = 0; i < array.length - 2; i++) {
+                for (let j = i + 1; j < array.length - 1; j++) {
+                    for (let k = j + 1; k < array.length; k++) {
+                        if (Number(array[i]) + Number(array[j]) + Number(array[k]) == 0) {
+                            console.log(array[i] + " " + array[j] + " " + array[k]);
+                            count++;
+                            find = true;
+                        }
+                    }
+                }
+            }
+            console.log(count);
+
+            // If no triplet with 0 sum found in array 
+            if (find == false) {
+                console.log("does not exists");
+
+            }
+
+        }
+        catch (err) {
+            console.log(err.message);
+
+        }
+
+
+    },
+    /*********************stopWatch***********************/
+    /**
+     * 1.Start the Stopwatch and End the Stopwatch
+     * 
+     * @description:Measuring the time that elapses between the start and end clicks.
+     * 
+     * @purpose:Print the elapsed time.
+     * 
+     *@function: Is to calculate the time elapsed betweem the start and stop.
+     *            Press 0 to start. 
+     *            Press 1 to stop.    
+     */
+    readTime(read) {
+        try {
+            var starttm;
+            var stoptm;
+            /**
+             * starttm accepts the user inputs and start the stop watch;
+             */
+            starttm = read.question("Press 0 to start :");
+            /**
+             * start calls the stopwatch function.
+             */
+            var start = this.stopWatch();
+            /**
+             * stoptm accepts the user inputs and stop the watch.
+             */
+
+            var stoptm = read.question("Press 1 to stop :");
+
+            var stop = this.stopWatch();
+            /**
+             * stop calls the stopwatch function.
+             */
+
+            var tTime = stop - start;
+            /**
+             * tTime prints the interval time between start and stop.
+             */
+            console.log(tTime);
+
+        }
+        catch (err) {
+            console.log(err.message);
+
+        }
+    },
+
+    stopWatch() {
+        try {
+            var date = new Date();
+
+            /**
+             * date is to create new date object.
+             */
+            var i = date.getSeconds();
+            /**
+             * date will call the getSecond function.
+             */
+            return i;
+            /**
+             * return the seconds value.
+             */
+
+
+        } catch (error) {
+            console.log(error.message);
+
+        }
+    },
+    /*****************couponNumbers********************/
+    /**
+     * 1..N Distinct Coupon Number
+     * 
+     * @description:Given N distinct Coupon Numbers,need to generate random coupon numbers
+     * this code simulates this in  random process.
+     * 
+     * @purpose:To generate the coupon number using math.rondom
+     * 
+     * @function:Is to generate random number and to process distinct coupons.
+    
+     */
+    Coupon(number) {
+        try {
+            var num = 0;
+            var array = [];
+            var rannumber;
+            while (num < number) {
+                /**
+                 * Loop over till where num is equal to userinput to generate the coupon number.
+                 */
+                rannumber = Math.round(Math.random() * 123456789);
+                if (!array.includes(rannumber)) {
+                    array.push(rannumber)
+                }
+                /**
+                 * Condition pushs the ranrandom number to the array if the are unique.
+                 * 
+                 */
+                num++;
+            }
+            console.log("Coupon Numbers :" + array);
+
+        } catch (error) {
+            console.log(error.message);
+
+        }
+    },
+    /******************2DArray*******************/
+    /**
+     * 1.create 2 dimensional array in memory to read in M rows and N cols 
+     * 
+     *  @description:Taking the user inputs elements to print 2 Dimensional Array.
+     *  
+     * @purpose:To dispaly the array elements in 2D array.
+     * 
+     * @function:M rows, N Cols, and M * N inputs for 2D Array. 
+     */
+
+    creatArray(rows, cols, read) {
+        try {
+            var array = []
+            for (let i = 0; i < rows; i++) {
+                /**
+                 * Loop over till rows is equal to the userinput.
+                 */
+                array.push([])
+                /**
+                 * Pushing the array.
+                 */
+                for (let j = 0; j < cols; j++) {
+                    /**
+                     * Loop over till cols is equal to the userinput.
+                     */
+                    var ele = read.question("Enter the elements into array:");
+                    array[i][j] = ele;
+                    /**
+                     * taking the user input elements and storing into array. 
+                     */
+                }
+            }
+            console.log(array);
+
+
+
+        } catch (error) {
+
+        }
+    }
 
 }
+
+
+
+
