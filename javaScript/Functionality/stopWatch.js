@@ -13,9 +13,9 @@
  *@since         :25/01/2019
  * 
  ***********************************************************/
-var Access=require('../Utility/utility');
+var Access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
-var read=require('readline-sync');
-Access.readTime(read);//Invoking readTime function
+var read = require('readline-sync');
+Access.stopWatch(read);//Invoking readTime function

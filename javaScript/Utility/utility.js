@@ -15,6 +15,26 @@
  ***********************************************************/
 const readline = require('readline-sync');
 module.exports = {
+
+
+    /**
+     * 
+     * 
+     * @purpose  :To accept array elements from user.
+     * 
+     */
+    inputArray() {
+        var arr = [];
+        /**
+         * Ask the user size of the array and store the elements.
+         * 
+         */
+        var size = readline.question("Enter the size of the array :");
+        for (let i = 0; i < size; i++) {
+            arr[i] = readline.question("Enter the array elements :");
+        }
+        return arr;
+    },
     /***** String replace *****/
     /*
      * 1. username wit minmum 3 characters and not a number 
@@ -525,7 +545,7 @@ module.exports = {
                 array[i] = readline.question("Enter element :");
                 /**
                  * Loop over till array size is equal to userinput and
-                 * take the user input elements and push it to array 
+                 * take the user input elements and push it to array.
                  * 
                  */
             }
@@ -572,60 +592,31 @@ module.exports = {
      *            Press 0 to start. 
      *            Press 1 to stop.    
      */
-    readTime(read) {
+
+    stopWatch(read) {
         try {
-            var starttm;
-            var stoptm;
             /**
-             * starttm accepts the user inputs and start the stop watch;
+             * starttm accepts the user inputs and start watch;
              */
-            starttm = read.question("Press 0 to start :");
+            var starttm = read.question("Press Enter to start :");
+            var start = new Date();
+            var stoptm = read.question("Press Enter to stop :");
             /**
-             * start calls the stopwatch function.
-             */
-            var start = this.stopWatch();
-            /**
-             * stoptm accepts the user inputs and stop the watch.
-             */
-
-            var stoptm = read.question("Press 1 to stop :");
-
-            var stop = this.stopWatch();
-            /**
-             * stop calls the stopwatch function.
-             */
-
+            * stoptm accepts the user inputs and stop the watch.
+            */
+            var stop = new Date();
             var tTime = stop - start;
             /**
-             * tTime prints the interval time between start and stop.
-             */
-            console.log(tTime);
+            * tTime prints the interval time between start and stop.
+            */
+            tTime /= 1000;
+            var seconds = Math.round(tTime);
+            console.log(seconds + " sec ");
+
 
         }
-        catch (err) {
-            console.log(err.message);
 
-        }
-    },
-
-    stopWatch() {
-        try {
-            var date = new Date();
-
-            /**
-             * date is to create new date object.
-             */
-            var i = date.getSeconds();
-            /**
-             * date will call the getSecond function.
-             */
-            return i;
-            /**
-             * return the seconds value.
-             */
-
-
-        } catch (error) {
+        catch (error) {
             console.log(error.message);
 
         }
@@ -708,9 +699,469 @@ module.exports = {
         } catch (error) {
 
         }
-    }
+    },
+
+    /**************************************************************************************** */
+
+
+
+
+
+
+
+
+    /*****************************************Algorithms********************************************** */
+
+
+    /******************Anagram******************** */
+
+    /**
+     * 1.ake 2 Strings as Input  and Check for Anagrams
+     * 
+     * 
+     * @description:One string is an anagram of another if the second is simply
+     *  a rearrangement of the first.
+     * 
+     * @purpose:To display the string is anagram are not.
+     * 
+     * @function:function to check whether two strings are  
+     *           anagram of each other.
+     */
+    isAnagram(s, s1) {
+        try {
+            var format = /[a-zA-Z0-9]/;
+            var result;
+            /**
+             * Condition to check if the input is only charcter.
+             */
+            if (format.test(s) && format.test(s1)) {
+                /**
+                 * Condition to check the length of the first word and seconf=d word is same.
+                 */
+                if (s.length !== s1.length) {
+                    result = false;
+                }
+                /**
+                 * Split the string into an array
+                 * Sort the array alphabetically.
+                 * join the elements of an array into string and store the sorted string in a string.
+                 */
+                var sort1 = s.toString().split("").sort().join("");
+                var sort2 = s1.toString().split("").sort().join("");
+                /**
+                 * If sort1 and sort2 string is equal store true in result .
+                 * 
+                 */
+                result = sort1 === sort2;
+                /**
+                 * If condition check the result is true and print ig give word is anagram.
+                 */
+                if (result == true) {
+                    return true;
+
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                console.log("Enter only letters or alphabets only");
+
+            }
+
+        }
+
+        catch (error) {
+            console.log(error.message);
+
+        }
+    },
+
+
+
+    /************************primeNumber************************ */
+    /**
+     * 1.Find the Prime numbers in that range.
+     * 
+     * @description:Take a range of 0 - 1000 Numbers from the user  to generate prime number. 
+     * 
+     * @purpose:In given range to find the prime numbers.
+     * 
+     * @function:To find the prime numbers in the given range using loop condition.
+     */
+
+    isPrime(num) {
+        try {
+            /**
+             * Condition to check if the number  is 0 or 1 if it is return false
+             * else true.
+             */
+            if (num == 0 || num == 1)
+                return false;
+            /**
+             * Loop from 2 till the number is divisble by itself and by 1.
+             */
+            for (let i = 2; i < num; i++) {
+                if (num % i == 0)
+
+                    return false;
+            }
+            return true;
+
+        } catch (error) {
+            console.log(error.message);
+
+        }
+    },
+    primeNum() {
+        try {
+            console.log("Prime number in the range 0 to 1000");
+            /**
+             * Loop from 0 to 1000 and check if it is prime number. 
+             */
+            for (let i = 0; i <= 1000; i++) {
+                if (this.isPrime(i)) {
+                    console.log(i);
+
+                }
+            }
+
+        } catch (error) {
+            console.log(error.message);
+
+        }
+    },
+
+    /*************************isPrimePalindromeAnagram**************************** */
+    /**
+     * 1. To find the prime numbers that are Anagram and Palindrome.
+     * 
+     * @description:Find the prime numbers and then check for anagram and also palindrome if its then
+     *              print the elements.
+     * @purpose: To find prime numbers that are Anagram and Palindrome.
+     * 
+     * @function:To check the palindrome and anagram in prime numbers.
+     */
+    isNumberPalindrome(num1) {
+        try {
+            var str = "";
+            num1 = num1 + "";
+            for (let i = 0; i < num1.length; i++) {
+                str = num1.charAt(i) + str;
+            }
+            if (str == num1) {
+                return true;
+            }
+            return false;
+        } catch (error) {
+
+        }
+    },
+
+    isAnagramPalindrome() {
+        try {
+            console.log("Prime numbers in the range 0 to 1000 which are anagram");
+            var arr = [];
+            /**
+             * If the number is Prime push it to array.
+             */
+            for (let i = 0; i < 1000; i++) {
+                if (this.isPrime(i)) {
+                    arr.push(i);
+                }
+            }
+            /**
+             * Loop continuously from 1st element and second element.
+             * Invoke isAnagram and isPalindrome and pass 2 elemets 
+             * Print all the elements which are prime anagram,palindrome. 
+             * 
+             */
+
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = i + 1; j < arr.length; j++) {
+                    if (this.isAnagram(arr[i], arr[j])) {
+                        console.log(arr[i] + "--" + arr[j] + " Is anagram");
+                        if (this.isNumberPalindrome(arr[i])) {
+                            console.log(arr[i] + " Is palindrome");
+                        }
+                        if (this.isNumberPalindrome(arr[j])) {
+                            console.log(arr[j] + " Is palindrome");
+                        }
+                    }
+                }
+            }
+
+
+        } catch (error) {
+            console.log(error.message);
+
+        }
+    },
+
+    /*********************bubbleSort********************** */
+    /**
+     * 1.Sorting the integers using bubble sorted method.
+     * 
+     * @description:Reads in integers prints them in sorted order using Bubble Sort.
+     * 
+     * @purpose:Sorting the integers.
+     * 
+     * @function:Sort the integers using bubble sort method. 
+     *  
+     */
+    bubbleSort(n) {
+        try {
+            var arr = [];
+            for (let i = 0; i < n; i++) {
+                arr[i] = readline.question("Enter the element :");
+                /**
+                 * 
+                 * Loop over till array size is equal to userinput and
+                 * take the user input elements and push it to array.
+                 * 
+                 *
+                 */
+            }
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = i + 1; j < arr.length; j++) {
+                    /**
+                     * Loop over till array length and compare the values .
+                     */
+                    if (Number(arr[i]) > Number(arr[j])) {
+                        /**
+                         *  swap temp and arr[i]
+                         */
+                        var temp = arr[i];
+                        arr[i] = arr[j]
+                        arr[j] = temp
+                    }
+                }
+            }
+            console.log(arr);
+
+        } catch (error) {
+
+        }
+    },
+
+    /***********************insertionSort**************************/
+    /**
+     * 1.Sorting the string. 
+     * 
+     * @description: In strings from standard input and prints them in sorted order.
+     *                    Uses insertion sort.
+     * 
+     * @purpose: To sort the string in standard form.
+     * 
+     * @function:Takes the user inputs string and sort the string using insertion sort method. 
+     */
+    insertionSort() {
+        try {
+            var unsortedList = this.inputArray();
+            var length = unsortedList.length;
+            for (var i = 1; i < length; i++) {
+                var temp = unsortedList[i];
+                /**
+                 *  Copy of the current element. 
+                 *   Check through the sorted part and compare with the number in tmp. If large, shift the number
+                 * 
+                 */
+                for (var j = i - 1; j >= 0 && (unsortedList[j] > temp); j--) {
+                    /**
+                     * Shift the number.
+                     * 
+                     *  */
+                    unsortedList[j + 1] = unsortedList[j];
+                }
+                /**
+                 * 
+                 * Insert the copied number at the correct position
+                 *  in sorted part.
+                 *  */
+                unsortedList[j + 1] = temp;
+            }
+            console.log("Sorted List:" + unsortedList);
+
+        } catch (error) {
+
+        }
+    },
+
+
+    /***********************toFindnumber****************************** */
+    /**
+     * 1.To find the number.
+     * 
+     * @description:takes a command-line argument N, asks you to think of a number between 0 and N-1,
+     *  where N = 2^n, and always guesses the answer with n questions.
+     * 
+     * @purpose: To find the number using Binary Search method.
+     * 
+     * @function:Use Binary Search to find the number
+     *           Print the intermediary number and the final answer.
+     */
+    toFindnumber(low, high, read) {
+        try {
+
+            var mid = low + Math.floor((high - low) / 2);
+            /**
+             * Finds the mid value and math.floor round of the value if the answer is in decimal.
+             */
+            var k;
+            if (low < high) {
+                if (low == high - 1) {
+                    k = read.question("Is the number " + low + "If Yes press --> Yes " + "  " + "If No press No");
+                    if (k == 'Yes')
+                        return low;
+                    if (k == 'No')
+                        return high;
+                }
+
+                k = read.question("Is the number in the range " + mid + "--" + high + "If Yes Press -->Yes " + " " + "If No Press--> No")
+
+                if (k == 'Yes')
+                    mid = this.toFindnumber(mid, high, read)
+                if (k == 'No')
+                    mid = this.toFindnumber(low, mid - 1, read);
+            }
+            return mid;
+
+        } catch (error) {
+            console.log(error.message);
+
+
+        }
+    },
+    /************************temperatureConversion***************************/
+    /**
+     * 1.TemperatureConversion.
+     * 
+     * @description:Taking the user inputs in temperature and converting  to fahrenheit and Celsius.
+     * 
+     * @purpose:Conversion of temperature to fahrenheit and Celsius.
+     * 
+     * 
+     * @function:temperature in fahrenheit as input outputs the temperature in Celsius 
+     * or viceversa using the formula.
+     */
+    temperatureConversion(read) {
+        try {
+            var ch = 0;
+            var Celsius = 0;
+            var fahrenheit = 0;
+            ch = read.question(" Press 1 Celsius to Fahrenheit: \n Press 2  Fahrenheit to Celsius: \n Enter your choice :")
+            /**
+             * Taking user input choice to convert temperature to fahrenheit and Celsius.
+             */
+            if (ch == 1) {
+
+                Celsius = read.question("Enter temperature to convert fahrenheit :");
+                fahrenheit = (Celsius * 9 / 5) + 32;
+                console.log("Temperature in fahrenheit :" + fahrenheit);
+
+            }
+            else if (ch == 2) {
+                fahrenheit = read.question("Enter temperature to convert fahrenheit :");
+                Celsius = (fahrenheit - 32) * 5 / 9;
+                console.log(" Temperature in Celsius :" + Celsius + "degree");
+
+            }
+
+        } catch (error) {
+            console.log(error.message);
+
+
+        }
+    },
+
+    /*************************monthlyPayment*************************** */
+    /**
+     * 1.Calculates the monthly payments
+     * 
+     * @description:command-line arguments P, Y, and R and calculates the monthly payments you would have 
+     * to make over Y years to pay off a P principal loan amount at R per cent interest compounded monthly.
+     * 
+     * @purpose:Calculates the monthly payments using formula how much the pay off principal amount should 
+     * be paid monthly.
+     * 
+     * @function:Uses the formula to calculate the monthly payments .
+     */
+    monthlyPayment() {
+        try {
+            var Principal = process.argv[2];
+            var Years = process.argv[3];
+            var Rate = process.argv[4];
+            var payment = 0;
+            var r = Rate / (12 * 100);
+            var n = 12 * Years;
+
+            payment = (Principal * r) / (1 - Math.pow((1 + r), -n));
+            /**
+             * Calculating the monthly payment using formula.
+             * 
+             */
+
+            console.log(payment);
+
+
+
+        } catch (error) {
+            console.log(error.message);
+
+
+        }
+    },
+    /*************************DayofWeek*************************** */
+    /**
+     * 1.To find the Day of week.
+     * 
+     * @description:Take three command-line arguments: m (month), d (day), and y (year). 
+     * For m use 1 for January, 2 for February, and so forth. For output print 0 for Sunday, 
+     * 1 for Monday, 2 for Tuesday, and so forth.
+     * 
+     * @purpose: To find the day of week using by formula and 
+     * taking command line arguments inputs.
+     * 
+     * @function:That takes a date as input and prints the day of the week that date falls on.
+     */
+    DayofWeek(date, month, year) {
+        try {
+            if (!isNaN(date, month, year) && (0 < date && date < 32) && (0 < month && month < 13) && (999 < year && year < 10000)) {
+                var y0 = year - Math.trunc((14 - month) / 12);
+                var x = y0 + Math.trunc(y0 / 4) - Math.trunc(y0 / 100) + Math.trunc(y0 / 400);
+                var m0 = month + 12 * Math.trunc((14 - month) / 12) - 2;
+                var d0 = (date + x + Math.trunc(31 * m0 / 12)) % 7;
+                /**
+                 * Switch case takes the calculated value by using formula and finds out the day of week.
+                 * 
+                 */
+                switch (d0) {
+                    case 0: return "Sunday";
+                    case 1: return "Monday";
+                    case 2: return "Tuesday";
+                    case 3: return "Wednesday";
+                    case 4: return "Thursday";
+                    case 5: return "Friday";
+                    case 6: return "Saturday";
+                }
+            }
+            else {
+                return "Please enter the valid date month year";
+
+            }
+
+
+        } catch (error) {
+            console.log(error.message);
+
+        }
+    },
+
 
 }
+
+
+
 
 
 
