@@ -944,6 +944,54 @@ module.exports = {
         }
     },
 
+    /*********************bubbleSortstr********************** */
+    /**
+     * 1.Sorting the String using bubble sorted method.
+     * 
+     * @description:Reads in String prints them in sorted order using Bubble Sort.
+     * 
+     * @purpose:Sorting the String.
+     * 
+     * @function:Sort the String using bubble sort method. 
+     *  
+     */
+
+    bubbleSortstr(num) {
+        try {
+            var arr = [];
+            for (let i = 0; i < num; i++) {
+                arr[i] = readline.question("Enter the element :");
+                /**
+                 * 
+                 * Loop over till array size is equal to userinput and
+                 * take the user input elements and push it to array.
+                 * 
+                 *
+                 */
+            }
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = i + 1; j < arr.length; j++) {
+                    /**
+                     * Loop over till array length and compare the values .
+                     */
+                    if ((arr[i]) > (arr[j])) {
+                        /**
+                         *  swap temp and arr[i]
+                         */
+                        var temp = arr[i];
+                        arr[i] = arr[j]
+                        arr[j] = temp
+                    }
+                }
+            }
+            console.log(arr);
+
+        } catch (error) {
+            console.log(error.message);
+
+        }
+    },
+
     /***********************insertionSort**************************/
     /**
      * 1.Sorting the string. 
@@ -1157,10 +1205,332 @@ module.exports = {
         }
     },
 
+    /**********************sqrtNumber*********************** */
+    /**
+     * 1.To find the sqrt of non negative number.
+     * 
+     * @description:Compute the square root of a nonnegative number num given in
+     *  the input using Newton's method.
+     * 
+     * @purpose:Finding the perfect square of non negative number.
+     * 
+     * @function:Using Newton's method calculating the perfect square number.
+     */
+    sqrtNumber(num) {
+        try {
+            if (num > 0) {
+                var temp = num;
+                var epsilon = 1e-15;
+                /**
+                 * Loop over till where Math.abs of num and temp is greater then epilson.
+                 */
+                while (Math.abs(temp - num / temp) > epsilon * temp) {
+                    temp = (num / temp + temp) / 2;
+                }
+
+                console.log(" Square root of a  number :" + temp);
+            }
+            else {
+                console.log("Enter the number only positive ")
+            }
+        } catch (error) {
+            console.log(error.message);
+
+
+        }
+    },
+
+    /**********************binarySearchint************************ */
+    /**
+      * 1.Sorting the integers using binary search  method.
+      * 
+      * @description:Reads in integers prints them in  order using binary search sort method.
+      * 
+      * @purpose:Sorting the integers.
+      * 
+      * @function:Sort the integers using binary search  mehod. 
+      *  
+      */
+
+    binarySearchint(arr3, search) {
+        try {
+            var start = 0;
+            var stop = arr3.length - 1;
+            /**
+             * Iterate while start not meets stop
+             */
+            while (start <= stop) {
+                /**
+                 * Find the middle index
+                 */
+                var mid = start + Math.floor((stop - start) / 2);
+                /**
+                 * If element is present at mid, return True
+                 */
+                if (Number(arr3[mid] === search)) return true;
+              /**
+               * Else look in left or right half accordingly
+               */ else if (Number(arr3[mid]) < search) start = mid + 1;
+                else stop = mid - 1;
+            }
+            return false;
+        } catch (error) {
+            console.log(error.message);
+
+        }
+    },
+    /*****************************binarySearchstrg**************************** */
+    /**
+    * 1.Sorting the String using binary search method.
+    * 
+    * @description:Reads in String prints them in sorted order using binary search.
+    * 
+    * @purpose:Sorting the String.
+    * 
+    * @function:Sort the String using binary search method. 
+    *  
+    */
+
+    binarySearchstrg(arr2, search) {
+        try {
+            arr2.sort();
+            console.log(arr2);
+
+            var first = 0;
+            var last = arr2.length - 1;
+            /**
+            * Iterate while start not meets stop
+            */
+            while (first <= last) {
+                var mid = first + Math.floor((last - first) / 2);
+                /**
+                 * If element is present at mid, return True
+                 */
+                if ((arr2[mid]) === search)
+                    /**
+                   * Else look in left or right half accordingly
+                   */
+                    return true;
+                else if ((arr2[mid]) < search)
+                    first = mid + 1;
+                else
+                    last = mid - 1;
+            }
+            return false;
+
+
+
+        } catch (error) {
+            console.log(error.message);
+
+        }
+    },
+    /*************************toBinary************************** */
+    /**
+     *1. Representation of decimal number in binary (base 2). 
+     * 
+     * @description:It is based on decomposing the number into a sum of powers of 2.
+     * 
+     * @purpose:Representation of decimal number in binary (base 2) and padding the value to the string.
+     * 
+     * @function:That outputs the binary (base 2) representation of the decimal number typed as the input.
+     */
+    toBinary(num) {
+        try {
+            var temp = num;
+            var str = "";
+            while (num > .9) {
+                /**
+                 * Loop when the num value is greater than one.
+                 */
+                var res = Math.floor(num % 2);
+                str = res + str;
+                num = num / 2;
+            }
+            console.log("Binary value of given integer :" + str);
+
+
+        } catch (error) {
+            console.log(error.message);
+
+
+        }
+    },
+    /**************************searchWord**************************/
+    /**
+     * 1.Read in a list of words from File.
+     * 
+     * @description:Read in a list of words from File. Then prompt the user to enter a word to search the list.
+     *              The program reports if the search word is found in the list.
+     * 
+     * @purpose: To search a  word from the file where it contains list of words using binary search method.
+     * 
+     * @function: Use Arrays to sort the word list and then do the binary search
+     *            Print the result if the word is found or not.  
+    */
+    searchWord() {
+        try {
+            var arr = [];
+            var find = readline.question("Enter the word to searched :");
+            const fs = require('fs')
+            /**
+             * Reads the list of words from the file if the word is not found then it will throw error message. 
+             * 
+             */
+            fs.readFile('sample.txt', (err, data) => {
+                if (err) throw err;
+
+                arr = data.toLocaleString().split(",");
+                console.log(this.binarySearchstrg(arr, find));
+            })
+
+        } catch (error) {
+            console.log(error.message);
+
+        }
+    },
+    /***************************vendingMachine******************************** */
+    /**
+     * 1.Find the Fewest Notes to be returned for Vending Machine.
+     * 
+     * @description:There is 1, 2, 5, 10, 50, 100, 500 and 1000 Rs Notes which can be returned by Vending Machine.
+     *              To calculate the minimum number of Notes as well as the Notes to be returned by the Vending Machine as a Change.
+     * 
+     * @purpose:Find the Fewest Notes to be returned for Vending Machine.
+     * 
+     * @function:Use Recursion and check for largest value of the Note to return change to get 
+     *           to minimum number of Notes.
+     */
+
+    vendingMachine(arr1, amnt) {
+        try {
+            var note = 0;
+            for (let i = 0; i < arr1.length; i++) {
+                /**
+                 * Loop over till the amount should be greater than 1.
+                 */
+                if (amnt / arr1[i] >= 1) {
+                    var count = Math.floor(amnt / arr1[i])
+                    note = note + count;
+                    console.log(arr1[i] + " Notes are " + count);
+                    amnt = amnt % arr1[i];
+
+                }
+            }
+            console.log("Total number of notes are :" + note);
+        } catch (error) {
+            console.log(error.message);
+
+        }
+    },
+    /*************************mergeSort*************************** */
+    /**
+     * 1.Sorting the string using mergeSort method.
+     * 
+     * @description:Reads in string prints them in  order using mergeSort  sort method.
+     * 
+     * @purpose:Sorting the string.
+     * 
+     * @function:Sort the string using mergeSort  sort method.   
+     *  
+     */
+    mergeSort(res) {
+        try {
+            var n = res.length;
+            /**
+             * 
+             * if size is less than 2 return that.
+             */
+            if (n < 2) {
+                return;
+            }
+            /**
+             * cal mid value 
+             */
+            var mid = Math.floor(n / 2);
+            var left = [mid];
+            var right = [n - mid];
+            /**
+             * store  elements in left array which are present before the mid 
+             * 
+             *  */
+            for (let i = 0; i < mid; i++) {
+                left[i] = res[i];
+            }
+            /**
+             * 
+             * store  elements in left array which are present before the mid
+             * 
+             * */
+            for (let j = mid; j < n; j++) {
+                right[j - mid] = res[j];
+            }
+            /**
+             * call mergesort for left half
+             * 
+             */
+            this.mergeSort(left);
+            /**
+             * call mergesort for right half 
+             * 
+             */
+            this.mergeSort(right);
+            this.merge(left, right, res);
+        }
+        catch (err) {
+            console.log(err.message);
+
+        }
+
+    },
+    merge(arr, brr, crr) {
+        try {
+            var i = 0; var j = 0;
+            var k = 0;
+            /**
+             * 
+             *  merge elements into crr[]
+             * 
+             */
+            while (i < arr.length && j < brr.length) {
+                if (arr[i] <= brr[j]) {
+                    crr[k] = arr[i]
+                    i++;
+                }
+                else {
+                    crr[k] = brr[j];
+                    j++;
+                }
+                k++;
+            }
+            /**
+             * 
+             * if arr[] is greater than brr[], push all arr[] into crr[]
+             */
+            while (i < arr.length) {
+                crr[k] = arr[i];
+                i++;
+                k++;
+            }
+            /**
+             * 
+             * if arr[] is lesser than brr[], push all brr[] into crr[]
+             */
+            while (j < brr.length) {
+                crr[k] = brr[j];
+                j++;
+                k++;
+            }
+            return crr;
+        }
+        catch (err) {
+            console.log(err.message);
+
+        }
+    },
+
 
 }
-
-
 
 
 
