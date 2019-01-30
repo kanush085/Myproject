@@ -25,9 +25,5 @@ while (num != arr.length) {
 }
 var l = 0;
 var h = arr.length;
-function Merge() {
-
     Access.mergeSort(arr)
     console.log("Merge sorted result ", arr);
-}
-Merge();

@@ -27,7 +27,7 @@ var size = read.question("Enter the size of the array :");
 for (let i = 0; i < size; i++) {
     arr[i] = read.question("Enter the array elements :");
 }
-var find = read.question("Enter the string to searched :");
+var find = read.question("Enter element to be  searched :");
 //var res=Access.binarySearchstrg(arr,find);//Invoking binarySearchstrg function.
 //console.log(res);
 var result = Access.binarySearchint(arr, find);//Invoking the binarSearch function.
