@@ -12,7 +12,7 @@
  *@since         :27/01/2019
  * 
  ***********************************************************/
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
@@ -22,5 +22,5 @@ var str1 = read.question("Enter the string 2 :");
 /**
  * Accepting the user inputs.
  */
-var result=Access.isAnagram(str, str1);//Invoking the isAnagram function.
+var result=access.isAnagram(str, str1);//Invoking the isAnagram function.
 console.log(result);

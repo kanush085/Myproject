@@ -1,4 +1,4 @@
-/***********************************************************
+access/***********************************************************
  *
  * Execution      :Default node    cmd>node FlipCoin.js
  * Purpose        :To find the percentage of coins fliped heads and tails.
@@ -15,7 +15,7 @@
  * 
  ***********************************************************/
 
-var Access=require('../Utility/utility');
+var access=require('../Utility/utility');
 var read=require('readline-sync');
 var flip=read.question("Enter number of times the coin to flip :");
-Access.flipCoin(flip);//Invoking the flipcoin function.
+access.flipCoin(flip);//Invoking the flipcoin function.

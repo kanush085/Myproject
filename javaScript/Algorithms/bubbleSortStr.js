@@ -12,10 +12,10 @@
  *@since         :29/01/2019
  * 
  ***********************************************************/
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
 var read = require('readline-sync');
 var size=read.question("Enter the size of the array : ")
-Access.bubbleSort(size);//Invoking bubbleSortstr function.
+access.bubbleSortStr(size);//Invoking bubbleSortstr function.

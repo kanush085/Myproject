@@ -1,6 +1,6 @@
 /***********************************************************
  *
- * Execution      :Default node    cmd>node Distance.js
+ * Execution      :Default node    cmd>node Distanceaccess.js
  * Purpose        : To find the distance from the point(x,y).
  *@description 
  * 
@@ -13,10 +13,10 @@
  * 
  ***********************************************************/
 
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
 var read = require('readline-sync');
-Access.Distance();//Invoking the Distance function.
+access.distance();//Invoking the Distance function.
 

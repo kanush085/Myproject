@@ -13,7 +13,7 @@
  *@since         :25/01/2019
  * 
  ***********************************************************/
-var Access=require('../Utility/utility');
+var access=require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
@@ -22,4 +22,4 @@ var size=read.question("Enter the array size :")
 /**
  * Take the user input for declaring the array size.
  */
-Access.findTriplets(size);//Invoking findtriplets function
+access.findTriplets(size);//Invoking findtriplets function.

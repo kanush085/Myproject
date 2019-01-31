@@ -16,7 +16,7 @@
 
 
 
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
@@ -25,4 +25,4 @@ var year = read.question("Enter the year format YYYY:");
 /**
  * Taking the user input.
  */
-Access.leapYear(year);//Invoking the leapyear function.
+access.leapYear(year);//Invoking the leapyear function.

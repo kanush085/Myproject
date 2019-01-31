@@ -1,6 +1,6 @@
 /***********************************************************
  *
- * Execution      :Default node    cmd>node powerOf2.js
+ * Execution      :Default node    cmd>node powerOf2access.js
  * Purpose        : To find the power table of 2.
  *@description 
  * 
@@ -13,9 +13,9 @@
  * 
  ***********************************************************/
 
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
 var read = require('readline-sync');
-Access.power();//Invoking the power function.
+access.power();//Invoking the power function.

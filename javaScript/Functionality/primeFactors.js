@@ -14,7 +14,7 @@
  * 
  ***********************************************************/
 
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
@@ -23,4 +23,4 @@ var number = read.question("Enter the number: ");
 /**
  * Taking the user input.
  */
-Access.primeFactors(number);//Invoking the primeFactors function.
+access.primeFactors(number);//Invoking the primeFactors function.access.

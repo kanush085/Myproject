@@ -1,4 +1,4 @@
-/***********************************************************
+access/***********************************************************
  *
  * Execution      :Default node    cmd>node Gambler.js
  * Purpose        :Print Number of Wins and Percentage of Win and Loss.
@@ -13,9 +13,9 @@
  * 
  ***********************************************************/
 
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
 var readline = require('readline-sync');
-Access.gambler();//Invoking Gambler function.
+access.gambler();//Invoking Gambler function.

@@ -1,4 +1,4 @@
-/***********************************************************
+access/***********************************************************
  *
  * Execution      :Default node    cmd>node Qudractic.js
  * Purpose        :To find the roots of the equations.
@@ -13,7 +13,7 @@
  *@since         :25/01/2019
  * 
  ***********************************************************/
-var Acces=require('../Utility/utility');
+var access=require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
@@ -24,4 +24,4 @@ var c=read.question("Enter c value:");
 /**
  * Taking the user input.
  */
-Acces.Qudractic(a,b,c);//Invoking the Quadratic function.
+access.qudractic(a,b,c);//Invoking the Quadratic function.

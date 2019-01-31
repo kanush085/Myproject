@@ -12,11 +12,11 @@
  *@since         :27/01/2019
  * 
  ***********************************************************/
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
 var read = require('readline-sync');
 //var n=read.question("Enter the range to find prime :");
-Access. primeNum();//Invoking the isPrime function.
+access. primeNum();//Invoking the isPrime function.
 

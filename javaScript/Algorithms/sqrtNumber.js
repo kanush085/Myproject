@@ -12,10 +12,10 @@
  *@since         :29/01/2019
  * 
  ***********************************************************/
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
 var read = require('readline-sync');
 var Number = read.question("Enter the number :");
-Access.sqrtNumber(Number);//Invoking sqrtNumber function.
+access.sqrtNumber(Number);//Invoking sqrtNumber function.

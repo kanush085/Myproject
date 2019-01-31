@@ -12,7 +12,7 @@
  *@since         :29/01/2019
  * 
  ***********************************************************/
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
@@ -22,4 +22,4 @@ var arr = [2000, 500, 200, 100, 50, 10, 5, 2, 1]
  * Declaring the array elements.
  */
 var amount = read.question("Enter the amount :");
-Access.vendingMachine(arr, amount);//Invoking the vendingMachine function.
+access.vendingMachine(arr, amount);//Invoking the vendingMachine function.

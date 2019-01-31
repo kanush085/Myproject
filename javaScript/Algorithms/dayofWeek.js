@@ -13,7 +13,7 @@
  *@since         :28/01/2019
  * 
  ***********************************************************/
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
@@ -24,6 +24,6 @@ var year = Number(process.argv[4]);
 /**
  * Taking command line arguments inputs from the user.
  */
-var result = Access.DayofWeek(date, month, year) //Invoking the DayofWeek function.
+var result = access.dayofWeek(date, month, year) //Invoking the DayofWeek function.
 console.log(result);
 

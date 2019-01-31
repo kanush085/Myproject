@@ -1,4 +1,4 @@
-/***********************************************************
+access/***********************************************************
  *
  * Execution      :Default node    cmd>node Harmonic.js
  * Purpose        :To print harmonic number value.
@@ -13,7 +13,7 @@
  *@since         :24/01/2019
  * 
  ***********************************************************/
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
@@ -22,4 +22,4 @@ var number = read.question("Enter the number:");
 /**
  * Taking the user input.
  */
-Access.harmonic(number);//Invoking the harmonic function.
+access.harmonic(number);//Invoking the harmonic function.

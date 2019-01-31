@@ -15,7 +15,35 @@
  ***********************************************************/
 const readline = require('readline-sync');
 module.exports = {
+    /****************************************************************************************************************
+       * @purpose   : To read file from the path
+       * @function  : fileRead function reads the file and splits it by space and return the array.
+       ***************************************************************************************************************/
+    /**
+     * Requiring fs module in which readFile function is defined.
+     */
+    fileRead() {
 
+        var fileStream = require('fs');
+        var f = fileStream.readFileSync('sample.txt', 'utf8');
+        var arr = f.split(' ');
+        return arr;
+
+    },
+    /****************************************************************************************************************
+     * @purpose   : To write the data into a file.
+     * @function  : fileWrite function write the data to a file.
+     * @param     : fileWrite function accepts fileName and data to be written.
+     ***************************************************************************************************************/
+    fileWrite(fileName, data) {
+        const fs = require('fs');
+        fs.writeFile(fileName, data, function (err) {
+            if (err) {
+                return console.log(err);
+            }
+            //console.log("The file is saved!");
+        });
+    },
 
     /**
      * 
@@ -318,7 +346,7 @@ module.exports = {
      * @function:Function factorization accepts user input, loops over it till the input,
     *            if the number is divisible by each number, print the number.
      */
-    Distance() {
+    distance() {
         try {
             var a = process.argv[2];
             var b = process.argv[3];
@@ -432,7 +460,7 @@ module.exports = {
      * @function:To find the roots of the equation a*x*x + b*x + c.
      */
 
-    Qudractic(a, b, c) {
+    qudractic(a, b, c) {
         try {
             var d1 = b * b - (4 * a * c);
             /**
@@ -629,7 +657,7 @@ module.exports = {
      * @function:Is to generate random number and to process distinct coupons.
     
      */
-    Coupon(number) {
+    couponNumber(number) {
         try {
             var num = 0;
             var array = [];
@@ -992,7 +1020,7 @@ module.exports = {
      *  
      */
 
-    bubbleSortstr(num) {
+    bubbleSortStr(num) {
         try {
             var arr = [];
             for (let i = 0; i < num; i++) {
@@ -1208,7 +1236,7 @@ module.exports = {
      * 
      * @function:That takes a date as input and prints the day of the week that date falls on.
      */
-    DayofWeek(date, month, year) {
+    dayofWeek(date, month, year) {
         try {
             if (!isNaN(date, month, year) && (0 < date && date < 32) && (0 < month && month < 13) && (999 < year && year < 10000)) {
                 var y0 = year - Math.trunc((14 - month) / 12);
@@ -1288,7 +1316,7 @@ module.exports = {
       *  
       */
 
-    binarySearchint(arr3, search) {
+    binarySearchInt(arr3, search) {
         try {
             arr3.sort();
             var start = 0;
@@ -1328,7 +1356,7 @@ module.exports = {
     *  
     */
 
-    binarySearchstrg(arr2, search) {
+    binarySearchStrg(arr2, search) {
         try {
             arr2.sort();
             console.log(arr2);
@@ -1565,6 +1593,116 @@ module.exports = {
 
         }
     },
+    /*********************************************** */
+    /**
+     * 1.To play Tic Tac Toe game.
+     *  
+     * @descriptionto play a Cross Game or Tic-Tac-Toe Game. Player 1 is the Computer and the Player 2 is the user. 
+     *                Player 1 take Random Cell that is the Column and Row. 
+
+     * @purpose:To play the  game player 1 is computer and player 2 is the user and the user marks the postion of the 
+     *          cell and computer marks the cell if the column  and row are series with x or  0 then player wins the game.   
+     * 
+     * @function:The User or the Computer can only take the unoccupied cell. 
+     *           The Game is played till either wins or till draw...
+     */
+    intializeGame() {
+        var game = [];
+        for (let i = 0; i <= 2; i++) {
+            game.push([]);
+            for (let j = 0; j <= 2; j++)
+                game[i][j] = '-';
+        }
+        return game;
+    },
+
+    random() {
+        /**
+         * To generate the random value and return the value.
+         */
+        var value = Math.floor(Math.random() * 3);
+        console.log(value + 1);
+        return value;
+    },
+
+    mark(game, x, y, value) {
+        if (game[x][y] == '-')
+            game[x][y] = value;
+
+        for (let i = 0; i <= 2; i++) {
+            var print = [];
+            for (let j = 0; j <= 2; j++)
+                print[j] = game[i][j];
+            console.log(print);
+        }
+        return game;
+    }
+    ,
+    computerPlayer(game) {
+        var arr;
+        var flag = false;
+        /**
+         * Loop over till flag becomes true.
+         */
+        while (flag == false) {
+            var x = this.random();
+            var y = this.random();
+            if (game[x][y] == '-') {
+                arr = this.mark(game, x, y, 'O');
+                flag = true;
+            }
+        }
+        return game;
+    }
+    ,
+    userPlayer(game) {
+        var flag = false;
+        while (flag == false) {
+            /**
+             * 
+             * Loop over till the flag becomes false.
+             */
+            console.log("Enter the row value:");
+            let x = readline.questionInt('Enter the value of x within 1,2,3 : ') - 1;
+            let y = readline.questionInt('Enter the value of y within 1,2,3 : ') - 1;
+            if (game[x][y] == '-') {
+                this.mark(game, x, y, 'X');
+                flag = true;
+            }
+            else
+                console.log("Please enter the correct choice");
+        }
+        return game;
+    }
+    ,
+    check(game) {
+        for (let i = 0; i <= 2; i++) {
+            if (game[i][0] == game[i][1] && game[i][1] == game[i][2]) {
+                if (game[i][0] == 'O' || game[i][0] == 'X') {
+                    return true;
+                }
+            }
+            if (game[0][i] == game[1][i] && game[1][i] == game[2][i]) {
+                if (game[0][i] == 'O' || game[0][i] == 'X') {
+                    return true;
+                }
+            }
+        }
+        var k = 0, l = 0;
+        if (game[k][k] == game[k + 1][k + 1] && game[k + 1][k + 1] == game[k + 2][k + 2]) {
+            if (game[0][0] == 'O' || game[0][0] == 'X') {
+                return true;
+            }
+        }
+        if (game[l][l + 2] == game[l + 1][l + 1] && game[l + 1][l + 1] == game[l + 2][l]) {
+            if (game[0][0] == 'O' || game[0][0] == 'X') {
+                return true;
+            }
+        }
+        return false;
+    },
+
+
 
 
 }

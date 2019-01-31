@@ -12,7 +12,7 @@
  *@since         :28/01/2019
  * 
  ***********************************************************/
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
@@ -21,5 +21,5 @@ var N = process.argv[2]
 /**
  * Taking user input commands.
  */
-var result = Access.toFindnumber(0, N - 1, read);
+var result = access.toFindnumber(0, N - 1, read);
 console.log("Your number is :" + result);//Invoking toFindnumber function.

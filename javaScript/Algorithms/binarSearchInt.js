@@ -12,7 +12,7 @@
  *@since         :29/01/2019
  * 
  ***********************************************************/
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
@@ -28,8 +28,8 @@ for (let i = 0; i < size; i++) {
     arr[i] = read.question("Enter the array elements :");
 }
 var find = read.question("Enter element to be  searched :");
-//var res=Access.binarySearchstrg(arr,find);//Invoking binarySearchstrg function.
+//var res=Access.binarySearchStrg(arr,find);//Invoking binarySearchstrg function.
 //console.log(res);
-var result = Access.binarySearchint(arr, find);//Invoking the binarSearch function.
+var result = access.binarySearchInt(arr, find);//Invoking the binarSearch function.
 console.log(result);
 

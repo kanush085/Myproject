@@ -12,7 +12,7 @@
  *@since         :29/01/2019
  * 
  ***********************************************************/
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
@@ -25,5 +25,5 @@ while (num != arr.length) {
 }
 var l = 0;
 var h = arr.length;
-    Access.mergeSort(arr)
+    access.mergeSort(arr)
     console.log("Merge sorted result ", arr);

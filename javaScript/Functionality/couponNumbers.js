@@ -12,10 +12,10 @@
  *@since         :25/01/2019
  * 
  ***********************************************************/
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
 var read = require('readline-sync');
 var number = read.question("Enter the number to generate the coupon :");
-Access.Coupon(number);//Invoking the Coupon function.
+access.couponNumber(number);//Invoking the Coupon function.

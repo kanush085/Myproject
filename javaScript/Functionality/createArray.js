@@ -12,7 +12,7 @@
  *@since         :25/01/2019
  * 
  ***********************************************************/
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
@@ -25,4 +25,4 @@ var cols = read.question("Enter number of cols :");
 /**
  * Taking the user input to enter number of cols.
  */
-Access.creatArray(rows, cols, read);//Invoking the creatArray function.
+access.creatArray(rows, cols, read);//Invoking the creatArray function.

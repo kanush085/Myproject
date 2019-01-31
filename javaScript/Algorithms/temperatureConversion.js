@@ -12,9 +12,9 @@
  *@since         :28/01/2019
  * 
  ***********************************************************/
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
 var read = require('readline-sync');
-Access.temperatureConversion(read);//Invoking temperatureConversion function method.
+access.temperatureConversion(read);//Invoking temperatureConversion function method.

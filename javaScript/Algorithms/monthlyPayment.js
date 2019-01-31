@@ -13,9 +13,9 @@
  *@since         :28/01/2019
  * 
  ***********************************************************/
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
 var read = require('readline-sync');
-Access.monthlyPayment();//Invoking monthlyPayment function.
+access.monthlyPayment();//Invoking monthlyPayment function.

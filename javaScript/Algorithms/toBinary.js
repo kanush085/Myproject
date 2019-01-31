@@ -12,10 +12,10 @@
  *@since         :29/01/2019
  * 
  ***********************************************************/
-var Access = require('../Utility/utility');
+var access = require('../Utility/utility');
 /**
  * For accessing data from utility file.
  */
 var read = require('readline-sync');
 var number = read.question("Enter the number :");
-Access.toBinary(number);//Invoking toBinary function.
+access.toBinary(number);//Invoking toBinary function.
