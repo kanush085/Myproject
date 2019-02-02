@@ -21,7 +21,16 @@ function Queue() {
     var set = [];
     var flag = true;
     var count = 0;
-    var size = read.question("Enter the total number of people to be in queue :")
+    var valid = false;
+    do {
+        var size = read.question("Enter the total number of people to be in queue :")
+        if (isNaN(size)) {
+            console.log("Not a valid entry");
+        }
+        else {
+            valid = true;
+        }
+    } while (!valid)
     if (size > 0) {
         /**
          * Loop the number of size of people to deposit and withdraw amount.
@@ -57,7 +66,7 @@ function Queue() {
         /**
          * Loop number of size and dequeue the people.
          */
-        for (let i = 1; i < size; i++) { 
+        for (let i = 1; i < size; i++) {
             add = add + L.deEqueue();
         }
         console.log(add);

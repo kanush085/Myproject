@@ -26,17 +26,6 @@ class Node {
     }
 }
 /****************UnOrdered LinkedList & Ordered LinkedList. ******************* */
-/**
- * 1.UnOrdered LinkedList & Ordered LinkedList. 
- * 
- * @description:Read the Text from a file, split it into words and arrange it as Linked List.
- *              Take a user input to search a Word in the List. If the Word is not found then add it to the list, 
- *              and if it found then remove the word from the List. In the end save the list into a file.
- *
- * @purpose:    To read list of words from the file and add it to the file and remove it from th file and save it.
- * 
- * @param:      Read from file the list of Words and take user input to search a Text.
- */
 class LinkedList {
     /**
      * LinkedList has two varibles head,size 
@@ -195,18 +184,9 @@ class LinkedList {
         }
     }
 }
+/*******************************************Stack*************************************************/
+
 /***************************Balanced Parentheses***************************** */
-/**
- * 1.Simple Balanced Parentheses.
- * 
- * @description:Take an Arithmetic Expression such as (5+6)∗(7+8)/(4+3)(5+6)∗(7+8)/(4+3) where parentheses are used to order the performance of operations.
- *              Ensure parentheses must appear in a balanced fashion.
- * 
- * @purpose :   To balance paranthesis  in the mathematical expression.
- * 
- * @param:      Write a Stack Class to push open parenthesis “(“ and pop closed parenthesis “)”. 
- *              At the End of the Expression if the Stack is Empty then the Arithmetic Expression is Balanced.
- */
 class Stack {
     constructor() {
         this.item = [];
@@ -261,18 +241,9 @@ class Stack {
         return str;
     }
 }
+/*********************************************Queue**************************************************** */
+
 /*************************Simulate Banking Cash Counter************************* */
-/**
- * 1.Simulate Banking Cash Counter
- * 
- * @description:Banking Cash Counter where people come in to deposit Cash and withdraw Cash.
- *              Have an input panel to add people to Queue to either deposit or withdraw money and dequeue
- *              the people. Maintain the Cash Balance.
- * 
- * @purpose:    To create bank cash counter where amount is deposited and withdrawn from the account.
- * 
- * @param:      Queue Class to enqueue and dequeue people to either deposit or withdraw money and maintain the cash balance
- */
 class Queue {
     constructor() {
         this.items = [];
@@ -306,8 +277,59 @@ class Queue {
     }
 }
 
-module.exports = { LinkedList, Stack, Queue }
+/******************************************deQueue********************************************** */
+class deQueue {
+    constructor() {
+        this.items = []
+    }
+    addFront(data) {
+        /**
+         * Adds the data to first element.
+         */
+        this.items.unshift(data)
+    }
+    addRear(data) {
+        /**
+         * Adds the data to last element.
+         */
+        this.items.push(data)
+    }
+    removeFront() {
+        if (this.isEmpty())
+            return "underFlow"
+        /**
+         * Removes the first element.
+         */
+        return this.items.shift()
+    }
+    removeRear() {
+        /**
+         * Removes the top element.
+         */
+        return this.items.pop()
+    }
+    isEmpty() {
+        /**
+         * 
+         *return true if the queue is empty. 
+         * 
+         */
+        return this.items.length == 0;
+    }
+}
+module.exports = { LinkedList, Stack, Queue, deQueue,
+/************************binaryTree************************* */ 
+binaryTree(num)
+{
+var fact=1;
+for(let i=1;i<=num;i++)
+{
+    fact=fact*i;
+}
+return fact;
+},
 
+}
 
 
 
