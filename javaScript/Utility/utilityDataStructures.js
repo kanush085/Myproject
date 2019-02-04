@@ -66,32 +66,23 @@ class LinkedList {
             return false;
     }
     remove(data) {
-        var temp = this.head;
-        var prev = null;
+        var temp = this.head
+        var t = null
         while (temp != null) {
-            /**
-             * Loop over till temp is equal to null.
-             */
-            if (temp.data === data) {
-                /**
-                 * Condition to check the passed data is equal to current data.
-                 */
-                if (prev == null) {
-                    this.head = temp.next;
+            if (temp.data == data) {
+                if (t == null) {
+                    this.head = temp.next
                 }
                 else {
-                    prev.next = temp.next
-                    temp.next = null;
+                    t.next = temp.next
                 }
-                this.size--;
-                return temp.data;
+                this.size--
+                return temp.data
             }
-            else {
-                prev = temp;
-                temp = temp.next;
-            }
+            t = temp
+            temp = temp.next
         }
-        return -1;
+        return -1
     }
     search(data) {
         var temp = this.head;
@@ -233,17 +224,160 @@ class Stack {
             return this.item[top];
     }
     print() {
-        var str = "";
-        for (let i = 0; i < this.size; i++) {
-            str = str + " " + item[i];
-
+        var st = ""
+        var temp = this.top
+        while (temp) {
+            //console.log(temp.data)
+            st = st + " " + temp.data
+            temp = temp.next
         }
-        return str;
+        return st;
+    }
+}
+class StackLinkedList {
+
+    constructor() {
+        this.size = 0
+        this.head = null;
+    }
+    size() {
+
+        return this.size
+    }
+    isEmpty() {
+        /**
+         * Condition to check the size is zero.
+         */
+        return top == null;
+    }
+    push(data) {
+        var n = new Node(data)
+        if (this.head == null) {
+            this.head = n
+            this.size++
+        }
+        else {
+            var temp = this.head
+            while (temp.next) {
+                temp = temp.next
+            }
+            temp.next = n
+            this.size++
+        }
+    }
+    pop() {
+        if (this.head == null) {
+            console.log("Stack underflow");
+            return null;
+        }
+        var curr = this.head;
+        var pre = this.head;
+        if (curr.next == null) {
+            this.head = null;
+            return curr.data;
+        }
+        while (curr.next) {
+            pre = curr;
+            curr = curr.next;
+        }
+        var data = curr.data
+        pre.next = null;
+        this.size--;
+        return data;
+    }
+    peek() {
+        // check for empty stack 
+        if (!isEmpty()) {
+            return high.data;
+        }
+        else {
+            console.log("Stack empty");
+            return -1;
+        }
+    }
+    print() {
+        var st = ""
+        var temp = this.head
+        while (temp) {
+            //console.log(temp.data)
+            st = st + " " + temp.data
+            temp = temp.next
+        }
+        return st;
     }
 }
 /*********************************************Queue**************************************************** */
-
+class LinledListQueue {
+    constructor() {
+        this.tail = null;
+        this.head = null;
+    }
+    /**
+     * To add an element into the rear of the queue.
+     * @param {any} item
+     */
+    enQueue(item) {
+        /**
+         * Create a node by passing the item
+         */
+        let node = new Node(item);
+        /**
+         * If there are no head and tail, point the data to head and tail
+         */
+        if (!this.head) {
+            this.head = node;
+            this.tail = node;
+        } else {
+            /**
+             * We just move the tail pointer
+             */
+            this.tail.next = node;
+            this.tail = node;
+        }
+    }
+    /**
+     * To remove an item from the queue.
+     */
+    deQueue() {
+        if (!this.head) {
+            return "No item";
+        } else {
+            let itemToPop = this.head;
+            this.head = this.head.next;
+            return itemToPop;
+        }
+    }
+    /**
+     *return true if the queue is empty.
+     */
+    isEmpty() {
+        return this.size() < 1;
+    }
+    /**
+     * Returns the size of the queue
+     */
+    size() {
+        let current = this.head;
+        let counter = 0;
+        while (current) {
+            counter++;
+            current = current.next;
+        }
+        return counter;
+    }
+    printList() {
+        var st = ""
+        var temp = this.head
+        while (temp) {
+            //console.log(temp.data)
+            st = st + " " + temp.data
+            temp = temp.next
+        }
+        return st;
+    }
+}
 /*************************Simulate Banking Cash Counter************************* */
+
 class Queue {
     constructor() {
         this.items = [];
@@ -317,23 +451,88 @@ class deQueue {
         return this.items.length == 0;
     }
 }
-module.exports = { LinkedList, Stack, Queue, deQueue,
-/************************binaryTree************************* */ 
-binaryTree(num)
-{
-var fact=1;
-for(let i=1;i<=num;i++)
-{
-    fact=fact*i;
-}
-return fact;
-},
+module.exports = {
+    LinkedList, Stack, Queue, deQueue, StackLinkedList, LinledListQueue,
+    /************************binaryTree************************* */
+    binaryTree(num) {
+        var fact = 1;
+        for (let i = 1; i <= num; i++) {
+            fact = fact * i;
+        }
+        return fact;
+    },
+    /*****************************isPrime***************************** */
+    isPrime(i, j) {
+        var flag = 0;
+        k = 0;
+        var prime = [];
+
+        for (var index1 = i; index1 <= j; index1++) {
+            for (var index2 = 2; index2 < index1; index2++) {
+                if (index1 % index2 == 0) {
+                    flag = 0;
+                    break;
+                }
+                else {
+                    flag = 1;
+                }
+            }
+            if (flag == 1) {
+                prime[k++] = index1;
+            }
+        }
+        return prime;
+    },
+    /****************************dArray***************************** */
+    dArray() {
+        var arr = [];
+        var arr2 = [];
+        var array = [["0-100 "], ["100-200 "], ["200-300 "], ["300-400 "], ["400-500 "], ["500-600 "], ["600-700 "], ["700-800 "], ["800-900 "], ["900-1000 "]];
+        for (let i = 2; i < 1000; i++) {
+            if (utility.isPrime(i)) {
+                arr.push(i);
+
+            }
+        }
+        var range = 100, k = 0;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j < arr.length; j++) {
+                if (utility.isAnagram(arr[i], arr[j])) {
+                    if (arr[i] <= range) {
+                        if (arr[j] <= range) {
+                            array[k].push(arr[i]);
+
+                            arr2.push(arr[i])
+                            arr2.push(arr[j])
+                            array[k].push(arr[j]);
+                        }
+                    } else {
+                        range = range + 100;
+                        k++;
+                        if (arr[j] <= range) {
+                            array[k].push(arr[i]);
+                            array[k].push(arr[j]);
+                        }
+                    }
+                }
+            }
+        }
+        console.log("The Number which are prime and anagram ");
+        var req=require('util')
+        for (let i = 0; i < array.length; i++) {
+
+            for (let j = 0; j < array[i].length; j++) {
+                req.print(array[i][j]);
+                if (j == 0) {
+                    req.print(" => ");
+                } else {
+                    if (j != array[i].length - 1)
+                        req.print(",")
+                }
+            }
+            console.log();
+        }
+        return arr2
+    },
 
 }
-
-
-
-
-
-
-
