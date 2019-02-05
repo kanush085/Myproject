@@ -15,6 +15,7 @@
  ***********************************************************/
 var util = require('../Utility/utilityDataStructures');
 function primes() {
+    try{
     var primes = [];
     var start = 0;
     var end = 100;
@@ -24,5 +25,9 @@ function primes() {
         start = start + 100;
         end = end + 100;
     }
+}
+catch (err) {
+    console.log(err.message);
+}
 }
 primes();

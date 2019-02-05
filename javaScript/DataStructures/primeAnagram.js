@@ -16,6 +16,8 @@
 var access = require('../Utility/utilityDataStructures');
 var M = require('../Utility/utility')
 var readline = require('readline-sync');
+try
+{
 var arr = [];
 var stack = new access.StackLinkedList
 for (let i = 1000; i >= 0; i--) {
@@ -36,3 +38,6 @@ for (let i = 0; i < arr.length; i++) {
 var result = stack.print()
 console.log(("Anagrams in reverse order :"));
 console.log(result + "\n");
+}catch (err) {
+    console.log(err.message);
+}

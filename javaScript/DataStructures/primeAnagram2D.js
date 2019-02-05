@@ -17,12 +17,16 @@ var access = require('../Utility/utilityDataStructures');
 var M = require('../Utility/utility')
 var T=require('util')
 var readline = require('readline-sync');
+try
+{
 var array = [["0-100 "], ["100-200  "], ["200-300 "], ["300-400 "], ["400-500 "], ["500-600 "], ["600-700 "], ["700-800 "], ["800-900 "], ["900-1000 "]];
-var array1 = [["0-100 "], ["100-200  "], ["200-300 "], ["300-400 "], ["400-500 "], ["500-600 "], ["600-700 "], ["700-800 "], ["800-900 "], ["900-1000 "]];
 var i = 0; var j = 1; var range = 100;
 var arr = []
 var arr1 = []
 var arr2 = []
+/**
+ * Loop to find the prime number till 1000.
+ */
 for (let prime = 2; prime <= 1000; prime++) {
     if (M.isPrime(prime)) {
 
@@ -34,12 +38,14 @@ for (let prime = 2; prime <= 1000; prime++) {
             for (let i = 0; i < b.length; i++) {
                 v = v + b[i]
             }
+            /**
+             * Condition to check array includes the number if not push it array.
+             */
             if (!arr.includes(v)) {
                 arr.push(v)
                 array[i][j] = prime;
                 j++;
             }
-
         }
         else {
             var a1 = "" + prime
@@ -49,6 +55,9 @@ for (let prime = 2; prime <= 1000; prime++) {
             for (let i = 0; i < b1.length; i++) {
                 v1 = v1 + b[i]
             }
+             /**
+             * Condition to check array includes the number if not push it array.
+             */
             if (!arr1.includes(v1)) {
                 arr1.push(v1)
                 j = 1;
@@ -56,14 +65,10 @@ for (let prime = 2; prime <= 1000; prime++) {
                 i++;
                 array[i][j] = prime;
             }
-           
-
         }
     }
 }
-
 var arr=access.dArray();
-
 console.log("The prime numbers that are not Anagram presents in the given range ");
 for (var i = 0; i < array.length; i++) {
     for (var j = 0; j < array[i].length; j++) {
@@ -71,4 +76,10 @@ for (var i = 0; i < array.length; i++) {
     }
     //utility.mark1(array)
     console.log();
+}
+}
+catch(err)
+{
+    console.log(err.message);
+    
 }

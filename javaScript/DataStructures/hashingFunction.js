@@ -19,6 +19,7 @@ var take = require('util');
 var filestream = require('fs');
 var utility = require('../Utility/utility');
 function hashing() {
+    try{
     var fileRead = filestream.readFileSync('hashNumbers.txt', 'utf8');
     var nArray = fileRead.split(' ');
     var arr = []
@@ -90,5 +91,8 @@ function hashing() {
     utility.fileWrite('hashNumbers.txt', str);
 
     console.log("\n\n");
+}catch (err) {
+    console.log(err.message);
+}
 }
 hashing();

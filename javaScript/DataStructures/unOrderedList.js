@@ -19,6 +19,7 @@ var read = require('readline-sync');
 var arr = M.fileRead();
 var L = new access.LinkedList;
 var word = read.question("Enter the word to searched :")
+
 try {
     /**
     * Loop condition to convert the string int integer and store it in array.

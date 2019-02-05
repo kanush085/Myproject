@@ -16,11 +16,12 @@ var access = require('../Utility/utilityDataStructures');
 var M = require('../Utility/utility');
 var read = require('readline-sync');
 function Queue() {
+    try
+    {
     var L = new access.Queue;
     var bankamnt = 4000;
     var set = [];
     var flag = true;
-    var count = 0;
     var valid = false;
     do {
         var size = read.question("Enter the total number of people to be in queue :")
@@ -44,6 +45,10 @@ function Queue() {
             }
             else if (input == 2) {
                 var amount = read.questionInt("Enter the total amount to be withdraw :")
+                if(amount>bankamnt){
+                    console.log("Plz enter less amount to witdraw");
+                    return;  
+                }
                 var get = L.enqueue(Number(-amount))
                 flag = true;
             }
@@ -79,5 +84,8 @@ function Queue() {
             console.log("Minimum cash is maintained in bank");
         }
     }
+}catch (err) {
+    console.log(err.message);
 }
+} 
 Queue();

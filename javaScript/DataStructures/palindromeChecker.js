@@ -16,6 +16,8 @@ var access = require('../Utility/utilityDataStructures');
 var M = require('../Utility/utility');
 var read = require('readline-sync');
 function deQueue() {
+    try
+    {
     var L = new access.deQueue;
     var flag = false;
     /**
@@ -71,5 +73,11 @@ function deQueue() {
     else {
         console.log("Entered string is not a palindrome ");
 
-    }
+   
+     }
+     }catch(error)
+     {
+         console.log(error.message);
+         
+     }
 } deQueue();

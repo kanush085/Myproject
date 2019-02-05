@@ -344,7 +344,7 @@ class LinledListQueue {
         } else {
             let itemToPop = this.head;
             this.head = this.head.next;
-            return itemToPop;
+            return itemToPop.data;
         }
     }
     /**
@@ -377,7 +377,6 @@ class LinledListQueue {
     }
 }
 /*************************Simulate Banking Cash Counter************************* */
-
 class Queue {
     constructor() {
         this.items = [];
@@ -491,10 +490,12 @@ module.exports = {
         for (let i = 2; i < 1000; i++) {
             if (utility.isPrime(i)) {
                 arr.push(i);
-
             }
         }
         var range = 100, k = 0;
+        /**
+         * Loop to find anagram and push it to stack.
+         */
         for (let i = 0; i < arr.length; i++) {
             for (let j = i + 1; j < arr.length; j++) {
                 if (utility.isAnagram(arr[i], arr[j])) {
@@ -518,7 +519,7 @@ module.exports = {
             }
         }
         console.log("The Number which are prime and anagram ");
-        var req=require('util')
+        var req = require('util')
         for (let i = 0; i < array.length; i++) {
 
             for (let j = 0; j < array[i].length; j++) {
