@@ -19,6 +19,8 @@ function call() {
     try {
         var month = +process.argv[2];
         var year = +process.argv[3];
+        if(!isNaN(month,year)&&(0 < month && month < 13) && (999 < year && year < 10000))
+        {
         var week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         var dates = [0, 31, 28, 31, 30, 31, 31, 30, 31, 30, 31, 30, 31];
         var day = access.day(month, 1, year);
@@ -53,6 +55,10 @@ function call() {
             }
         }
         console.log("\n\n");
+    }
+    else{
+        console.log("Please enter the valid  month year");
+    }
     } catch (err) {
         console.log(err.message);
     }

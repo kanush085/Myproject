@@ -77,7 +77,7 @@ class LinkedList {
                     t.next = temp.next
                 }
                 this.size--
-                return temp.data
+                return temp.data;
             }
             t = temp
             temp = temp.next
@@ -85,98 +85,115 @@ class LinkedList {
         return -1
     }
     search(data) {
-        var temp = this.head;
-        while (temp) {
-            /**
-             * Condition to check weather given data is present in the list.
-             */
-            if (temp.data === data) {
-                return true;
-            }
-            temp = temp.next;
+             /*
+              *contain function searches for the item in the list
+              *it needs the item and returns boolean value
+              */
+        if (this.head == null) {
+            console.log("List is empty");
         }
-        return false;
-    }
-    print() {
-        var temp = this.head;
-        var str = "";
-        while (temp) {
-            /**
-             * Loop till temp is equal to null.
-             */
-            str += temp.data + " ";
-            temp = temp.next;
-        }
-        return str;
-    }
-    indexOf(data) {
-        var count = 0;
-        var temp = this.head;
-        while (temp != null) {
-            if (temp.data === data)
-                return count;
-            count++;
-            temp = temp.next;
-
-        }
-        return -1;
-    }
-    addPos(arr, num) {
-        console.log(num + "  in addpos")
-        for (let i = 0; i < arr.length - 1; i++) {
-            if (arr[0] >= num)
-                return 0
-            else if (arr[i] < num && arr[i + 1] > num) {
-                return i + 1
-            }
-        }
-        return arr.length
-    }
-    /**
-     * 
-     *insert element at the position index of the list 
-     * 
-     */
-    insertAt(element, index) {
-        if (index > 0 && index > this.size)
-            return false;
         else {
-            /**
-             *  creates a new node 
-             */
-            var node = new Node(element);
-            var curr, prev;
-            curr = this.head;
-            /**
-             * add the element to the first index 
-             */
-            if (index == 0) {
-                node.next = head;
-                this.head = node;
-            } else {
-                curr = this.head;
-                var it = 0;
-                /**
-                 *  iterate over the list to find the position to insert 
-                 */
-                while (it < index) {
-                    it++;
-                    prev = curr;
-                    curr = curr.next;
+            var temp = this.head;
+            while (temp) {
+                if (temp.data == data) {
+                    return true;
                 }
-                /**
-                 * 
-                 * adding an element 
-                 */
-                node.next = curr;
-                prev.next = node;
+                else
+                    temp = temp.next;
             }
-            this.size++;
+            return false;
         }
     }
-}
-/*******************************************Stack*************************************************/
+        print() {
+            var temp = this.head;
+            var str = "";
+            while (temp) {
+                /**
+                 * Loop till temp is equal to null.
+                 */
+                str += temp.data + " ";
+                temp = temp.next;
+            }
+            return str;
+        }
+        indexOf(data) {
+            var count = 0;
+            var temp = this.head;
+            while (temp != null) {
+                if (temp.data === data)
+                    return count;
+                count++;
+                temp = temp.next;
 
+            }
+            return -1;
+        }
+        addPos(arr, num) {
+            console.log(num + "  in addpos")
+            for (let i = 0; i < arr.length - 1; i++) {
+                if (arr[0] >= num)
+                    return 0
+                else if (arr[i] < num && arr[i + 1] > num) {
+                    return i + 1
+                }
+            }
+            return arr.length
+        }
+        /**
+         * 
+         *insert element at the position index of the list 
+         * 
+         */
+        insertAt(element, index) {
+            if (index > 0 && index > this.size)
+                return false;
+            else {
+                /**
+                 *  creates a new node 
+                 */
+                var node = new Node(element);
+                var curr, prev;
+                curr = this.head;
+                /**
+                 * add the element to the first index 
+                 */
+                if (index == 0) {
+                    node.next = head;
+                    this.head = node;
+                } else {
+                    curr = this.head;
+                    var it = 0;
+                    /**
+                     *  iterate over the list to find the position to insert 
+                     */
+                    while (it < index) {
+                        it++;
+                        prev = curr;
+                        curr = curr.next;
+                    }
+                    /**
+                     * 
+                     * adding an element 
+                     */
+                    node.next = curr;
+                    prev.next = node;
+                }
+                this.size++;
+            }
+        }
+    }
+/****************************************Stack*********************************************/
+/**
+ * 1.Simple Balanced Parentheses.
+ * 
+ * @description:Take an Arithmetic Expression such as (5+6)∗(7+8)/(4+3)(5+6)∗(7+8)/(4+3) where parentheses are used to order the performance of operations.
+ *              Ensure parentheses must appear in a balanced fashion.
+ * 
+ * @purpose :   To balance paranthesis  in the mathematical expression.
+ * 
+ * @param:      Write a Stack Class to push open parenthesis “(“ and pop closed parenthesis “)”. 
+ *              At the End of the Expression if the Stack is Empty then the Arithmetic Expression is Balanced.
+ */
 /***************************Balanced Parentheses***************************** */
 class Stack {
     constructor() {
@@ -234,6 +251,7 @@ class Stack {
         return st;
     }
 }
+/***********************************StackLinkedList************************************ */
 class StackLinkedList {
 
     constructor() {
@@ -306,7 +324,7 @@ class StackLinkedList {
         return st;
     }
 }
-/*********************************************Queue**************************************************** */
+/**************************************LinledListQueue************************************ */
 class LinledListQueue {
     constructor() {
         this.tail = null;
@@ -329,7 +347,7 @@ class LinledListQueue {
             this.tail = node;
         } else {
             /**
-             * We just move the tail pointer
+             * We just move the tail pointer.
              */
             this.tail.next = node;
             this.tail = node;
@@ -376,6 +394,18 @@ class LinledListQueue {
         return st;
     }
 }
+/***************************************Queue******************************************* */
+/**
+ * 1.Simulate Banking Cash Counter
+ * 
+ * @description:Banking Cash Counter where people come in to deposit Cash and withdraw Cash.
+ *              Have an input panel to add people to Queue to either deposit or withdraw money and dequeue
+ *              the people. Maintain the Cash Balance.
+ * 
+ * @purpose:    To create bank cash counter where amount is deposited and withdrawn from the account.
+ * 
+ * @param:      Queue Class to enqueue and dequeue people to either deposit or withdraw money and maintain the cash balance
+ */
 /*************************Simulate Banking Cash Counter************************* */
 class Queue {
     constructor() {
@@ -453,6 +483,16 @@ class deQueue {
 module.exports = {
     LinkedList, Stack, Queue, deQueue, StackLinkedList, LinledListQueue,
     /************************binaryTree************************* */
+    /**
+     * 1.Binary Tree.
+     * 
+     * @description:First line will contain an integer, T, number of test cases. Then T lines follow, where each line represent a test case.
+     *              Each test case consists a single integer, N, where N is the number of nodes in the binary search tree. 
+     * 
+     * @purpose:    Given N nodes, each having unique value ranging from [1, N], how many different binary search tree can be created using all of them
+     * 
+     * @param:      For each test case, find the number of different binary search trees that can be created using these nodes. 
+     */
     binaryTree(num) {
         var fact = 1;
         for (let i = 1; i <= num; i++) {

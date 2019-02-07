@@ -16,10 +16,12 @@
 var access = require('../Utility/utilityDataStructures');
 var M = require('../Utility/utility');
 var read = require('readline-sync');
-var arr = M.fileRead();
+var fileread = require('fs')
+var f = fileread.readFileSync('sample.txt', 'utf8');
+var arr = f.trim().toLocaleLowerCase().split(' ');
 var L = new access.LinkedList;
 var word = read.question("Enter the word to searched :")
-
+word = word.toLocaleLowerCase()
 try {
     /**
     * Loop condition to convert the string int integer and store it in array.
@@ -33,6 +35,7 @@ try {
         L.remove(word)
         var output = L.print()
         M.fileWrite('sample.txt', output);
+        console.log(output);
     }
     else {
         L.add(word)

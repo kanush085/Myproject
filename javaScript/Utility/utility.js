@@ -25,8 +25,8 @@ module.exports = {
     fileRead() {
 
         var fileStream = require('fs');
-        var f = fileStream.readFileSync('sample.txt', 'utf8');
-        var arr = f.trim().split(' ');
+        var f = fileStream.readFileSync('sample1.txt', 'utf8');
+        var arr = f.trim().toLocaleLowerCase().split(' ');
         return arr;
 
     },

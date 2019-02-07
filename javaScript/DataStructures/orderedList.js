@@ -38,6 +38,8 @@ try {
         L.add(arr[i])
     }
     var found = L.search(number)
+    console.log(found);
+
     if (found == true) {
         L.remove(number)
         var output = L.print()

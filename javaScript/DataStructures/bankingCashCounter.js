@@ -40,8 +40,16 @@ function Queue() {
             var input = read.question("Enter 1 deposit amount :\nEnter 2 to withdraw amount :")
             if (input == 1) {
                 var amount = read.questionFloat("Enter the total amount to deposit :")
+                if(amount>0)
+                {
                 var set = L.enqueue(Number(amount));
+                console.log("balance after depositing th amount :"+(bankamnt+amount));
                 flag = true;
+                }
+                else
+                {
+                    console.log("Please enter greater amount");   
+                }
             }
             else if (input == 2) {
                 var amount = read.questionInt("Enter the total amount to be withdraw :")
@@ -51,6 +59,8 @@ function Queue() {
                 }
                 var get = L.enqueue(Number(-amount))
                 flag = true;
+                console.log("balance after withdrawing the amount :"+(bankamnt-amount));
+                
             }
             else {
                 console.log("Make sure that you have entered correct key ");
