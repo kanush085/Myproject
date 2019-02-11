@@ -424,6 +424,7 @@ module.exports = {
                      */
                     times++;
 
+
                 }
                 console.log("Number of bets he/she makes:" + times);
                 console.log("Number of wins" + win);
@@ -589,20 +590,15 @@ module.exports = {
                 }
             }
             console.log(count);
-
             // If no triplet with 0 sum found in array 
             if (find == false) {
                 console.log("does not exists");
-
             }
-
         }
         catch (err) {
             console.log(err.message);
 
         }
-
-
     },
     /*********************stopWatch***********************/
     /**
@@ -636,10 +632,7 @@ module.exports = {
             tTime /= 1000;
             var seconds = Math.round(tTime);
             console.log(seconds + " sec ");
-
-
         }
-
         catch (error) {
             console.log(error.message);
 
@@ -1006,6 +999,20 @@ module.exports = {
         } catch (error) {
 
         }
+    },
+    bubble(arr)
+    {
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j < arr.length; j++) {
+                if(arr[i]>arr[j])
+                {
+                    var temp=arr[i];
+                    arr[i]=arr[j]
+                    arr[j]=temp;
+                }
+            }
+        } 
+        return arr;  
     },
 
     /*********************bubbleSortstr********************** */
