@@ -1453,7 +1453,7 @@ module.exports = {
                 if (err) throw err;
 
                 arr = data.toLocaleString().split(",");
-                console.log(this.binarySearchstrg(arr, find));
+                console.log(this.binarySearchStrg(arr, find));
             })
 
         } catch (error) {

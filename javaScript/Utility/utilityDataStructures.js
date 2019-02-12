@@ -84,11 +84,13 @@ class LinkedList {
         }
         return -1
     }
+
+
     search(data) {
-             /*
-              *contain function searches for the item in the list
-              *it needs the item and returns boolean value
-              */
+        /*
+         *contain function searches for the item in the list
+         *it needs the item and returns boolean value
+         */
         if (this.head == null) {
             console.log("List is empty");
         }
@@ -104,84 +106,137 @@ class LinkedList {
             return false;
         }
     }
-        print() {
-            var temp = this.head;
-            var str = "";
-            while (temp) {
-                /**
-                 * Loop till temp is equal to null.
-                 */
-                str += temp.data + " ";
-                temp = temp.next;
-            }
-            return str;
+    print() {
+        var temp = this.head;
+        var str = "";
+        while (temp) {
+            /**
+             * Loop till temp is equal to null.
+             */
+            str += temp.data + " ";
+            temp = temp.next;
         }
-        indexOf(data) {
-            var count = 0;
-            var temp = this.head;
-            while (temp != null) {
-                if (temp.data === data)
-                    return count;
-                count++;
-                temp = temp.next;
+        return str;
+    }
+    indexOf(data) {
+        var count = 0;
+        var temp = this.head;
+        while (temp != null) {
+            if (temp.data === data)
+                return count;
+            count++;
+            temp = temp.next;
 
-            }
-            return -1;
         }
-        addPos(arr, num) {
-            console.log(num + "  in addpos")
-            for (let i = 0; i < arr.length - 1; i++) {
-                if (arr[0] >= num)
-                    return 0
-                else if (arr[i] < num && arr[i + 1] > num) {
-                    return i + 1
-                }
+        return -1;
+    }
+    addPos(arr, num) {
+        console.log(num + "  in addpos")
+        for (let i = 0; i < arr.length - 1; i++) {
+            if (arr[0] >= num)
+                return 0
+            else if (arr[i] < num && arr[i + 1] > num) {
+                return i + 1
             }
-            return arr.length
         }
-        /**
-         * 
-         *insert element at the position index of the list 
-         * 
-         */
-        insertAt(element, index) {
-            if (index > 0 && index > this.size)
-                return false;
-            else {
-                /**
-                 *  creates a new node 
-                 */
-                var node = new Node(element);
-                var curr, prev;
+        return arr.length
+    }
+    /**
+     * 
+     *insert element at the position index of the list 
+     * 
+     */
+    insertAt(element, index) {
+        if (index > 0 && index > this.size)
+            return false;
+        else {
+            /**
+             *  creates a new node 
+             */
+            var node = new Node(element);
+            var curr, prev;
+            curr = this.head;
+            /**
+             * add the element to the first index 
+             */
+            if (index == 0) {
+                node.next = head;
+                this.head = node;
+            } else {
                 curr = this.head;
+                var it = 0;
                 /**
-                 * add the element to the first index 
+                 *  iterate over the list to find the position to insert 
                  */
-                if (index == 0) {
-                    node.next = head;
-                    this.head = node;
-                } else {
-                    curr = this.head;
-                    var it = 0;
-                    /**
-                     *  iterate over the list to find the position to insert 
-                     */
-                    while (it < index) {
-                        it++;
-                        prev = curr;
-                        curr = curr.next;
-                    }
-                    /**
-                     * 
-                     * adding an element 
-                     */
-                    node.next = curr;
-                    prev.next = node;
+                while (it < index) {
+                    it++;
+                    prev = curr;
+                    curr = curr.next;
                 }
-                this.size++;
+                /**
+                 * 
+                 * adding an element 
+                 */
+                node.next = curr;
+                prev.next = node;
             }
+            this.size++;
         }
     }
+    printele() {
+
+        var temp = this.head
+        while (temp) {
+            var st = ""
+            st = st + "name: " + temp.data.name + ", share:" + temp.data.share + ",price: " + temp.data.price
+            console.log(st);
+            temp = temp.next
+        }
+
+    }
+    printShares() {
+    var arr = [];
+    if (this.head == null) {
+      return null;
+    } else {
+      var temp = this.head;
+      while (temp) {
+        arr.push(temp.data);
+        temp = temp.next;
+      }
+      return arr;
+    }
+  }
+  /**
+   * To remove the share from the stock
+   * @param {any} element 
+   */
+  removeStock(element) {
+    var temp = this.head;
+    var prev = null;
+    // iterate over the list
+    while (temp != null) {
+      // comparing element & if found then remove
+      var stock = temp.data;
+      if (stock.name == element) {
+        if (prev == null) {
+          this.head = temp.next;
+        } else {
+          prev.next = temp.next;
+        }
+        /**
+         * To decrement the size of the LinkedList
+         */
+        this.size--;
+        return temp.data;
+      }
+      prev = temp;
+      temp = temp.next;
+    }
+    return -1;
+  }
+
+}
 /****************************************Stack*********************************************/
 /**
  * 1.Simple Balanced Parentheses.
@@ -323,6 +378,19 @@ class StackLinkedList {
         }
         return st;
     }
+    printShares() {
+        var arr = [];
+        if (this.head == null) {
+          return null;
+        } else {
+          var temp = this.head;
+          while (temp) {
+            arr.push(temp.data);
+            temp = temp.next;
+          }
+          return arr;
+        }
+}
 }
 /**************************************LinledListQueue************************************ */
 class LinledListQueue {

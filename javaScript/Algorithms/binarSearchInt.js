@@ -28,7 +28,7 @@ for (let i = 0; i < size; i++) {
     arr[i] = read.question("Enter the array elements :");
 }
 var find = read.question("Enter element to be  searched :");
-//var res=Access.binarySearchStrg(arr,find);//Invoking binarySearchstrg function.
+var res=Access.binarySearchStrg(arr,find);//Invoking binarySearchstrg function.
 //console.log(res);
 var result = access.binarySearchInt(arr, find);//Invoking the binarSearch function.
 console.log(result);

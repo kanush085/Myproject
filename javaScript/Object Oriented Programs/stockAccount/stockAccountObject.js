@@ -4,18 +4,18 @@ var file = require('fs');
 //var linkedList = new M.LinkedList();
 var s = 0;
 
-/************************* Inventory Management Program ***************************
- *  Inventory Management Program
+/************************* Stock Account Program ***************************
+ *  Stock Account Program
  *---------------------------------
- * @Purpose   :  To add and update the share info of customer and company.
+ * @Purpose     :  To add and update the share info of customer and company.
  * 
  * @Use Library : Java JSON Library
  *
- * @description: StockAccount implements a data type that might be used by a financial institution to keep track of customer information.
+ * @description : StockAccount implements a data type that might be used by a financial institution to keep track of customer information.
  *
- * @function: stockAccount keep the track of information about the company and the customer where customer can buy and sell the share .
+ * @function    : stockAccount keep the track of information about the company and the customer where customer can buy and sell the share .
  *
- * @param : object --> objects such as customer,company which are at  stockAccountObject.
+ * @param       : object --> objects such as customer,company which are at  stockAccountObject.
  */
 
 class stockAccount {
@@ -30,16 +30,12 @@ class stockAccount {
         var name1 = read.question(" enter the name of the customer: ");
         var id1 = Math.floor(Math.random() * 100);
         var share1 = Math.floor(Math.random() * 100);
-        //var time = new Date();
-        //var time1=time.getSeconds();
         console.log(id1);
         data.customer.push(
             {
                 name: name1,
                 id: id1,
-                share: share1,
-                // time:time
-
+                share: share1
             }
         )
         console.log(data.customer);
@@ -89,8 +85,9 @@ class stockAccount {
                         var s = " customer name :  " + customername + "  and name of company  " + name10 + " & symbol " + sym10 + "  buy number of shares " + number;
                         console.log(s);
                         //this.stackps(s);
-                        var time = new Date();
-                        console.log(" Time of buying the share is " + Math.floor(time.getSeconds())+" sec ");
+                        var time = new Date(Date.now());
+                        var time1 = time.toTimeString()
+                        //console.log(" Time of buying the share is " + Math.floor(time.getSeconds()) + " sec ")
                         var n = parseInt(data.customer[index].share)
                         var n11 = parseInt(data1.company[i].share)
                         var num = parseInt(number);
@@ -99,6 +96,7 @@ class stockAccount {
                         if (n11 > num) {
                             data.customer[index].share = n1;
                             data1.company[i].share = n2;
+                            data.customer[index].recentTransaction = time1;
                             var d = file.writeFileSync('customer.json', JSON.stringify(data));
                             //console.log(d) 
                             var d1 = file.writeFileSync('company.json', JSON.stringify(data1));
@@ -140,8 +138,8 @@ class stockAccount {
                         var s = " customer name :" + customername1 + " and name of company " + name11 + " & symbol  " + sym13 + " sell number of shares :" + number;
                         console.log(s);
                         //this.stackps(s);
-                        var time11 = new Date();
-                        console.log(" Time of selling the share is " + Math.floor(time11.getSeconds())+" sec ");
+                        var time = new Date(Date.now());
+                        var time1 = time.toTimeString()
                         //this.queuetime(time1);
                         var n = parseInt(data.customer[index].share)
                         var n11 = parseInt(data1.company[i].share)
@@ -150,6 +148,7 @@ class stockAccount {
                         var n2 = n11 + num;
                         data.customer[index].share = n1;
                         data1.company[i].share = n2;
+                        data.customer[index].lastTransaction = time1;
                         var d = file.writeFileSync('customer.json', JSON.stringify(data));
                         var d1 = file.writeFileSync('company.json', JSON.stringify(data1));
                     }

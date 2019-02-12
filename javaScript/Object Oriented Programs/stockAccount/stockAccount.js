@@ -11,7 +11,7 @@
  * 
  * @file        :   companyStock.js
  * @overview    :   To add and update the share info of customer and company.
- * @author      :   Kavyashree K L <kavya.kavyashree97@gmail.com>
+ * @author      :   Anush Kumar S k <anushk136@gmail.com>
  * @version     :   1.0
  * @since       :   11/02/2019
  * 

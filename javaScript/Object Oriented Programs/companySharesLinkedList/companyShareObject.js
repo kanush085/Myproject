@@ -1,0 +1,86 @@
+var read = require("readline-sync");
+var file = require("fs");
+var access = require("../../Utility/utilityDataStructures");
+list = new access.LinkedList();
+
+/*************************companyShare***************************
+ * @Purpose     :  To add and update the share info of company.
+ * 
+ * @Use Library : Java JSON Library
+ *
+ * @description : companyShares implements a data type that might be used by a financial institution to keep track of customer information.
+ *
+ * @function    : companyShares keep the track of information about the  company where company can buy and sell the share .
+ *
+ * @param       : object --> objects such as company which are at  companyShares.
+ */
+class companyShares {
+    constructor() {
+        this.stock = new access.LinkedList();
+        try {
+            var data = JSON.parse(
+                file.readFileSync("/home/admin1/Anush/javaScript/Object Oriented Programs/companySharesLinkedList/comp.json")
+            );
+            for (let j = 0; j < data.company.length; j++) {
+                this.stock.add(data.company[j]);
+            }
+        } catch (err) {
+            console.log("File not found");
+        }
+    }
+    /**
+     * addToList to add the info about the company name,share and price
+     * using linkedlist and add it to list. 
+     */
+    addTolist() {
+        var flag = false;
+        do {
+            var name = read.question("Enter the name want to add : ");
+            if (!isNaN(name)) {
+                console.log("Please enter alphabetics only ......!");
+            } else {
+                flag = true;
+            }
+        } while (!flag);
+        var share = read.questionInt("Enter the share :");
+        var price = read.questionInt("Enter the price :");
+        this.stock.add({
+            name: name,
+            share: share,
+            price: price
+        });
+        console.log("Elemets after adding to list :");
+        console.log(this.stock.printShares());
+    }
+    /**
+     * removeFromList to remove the info about the company name,share and price
+     * using linkedlist and add it to list. 
+     */
+    removeFromList() {
+        console.log(this.stock.printShares());
+        var company = read.question("Enter company name: ");
+        this.stock.removeStock(company);
+        console.log(this.stock.printShares());
+    }
+    /**
+     * To print all the details of the company using printlist method.
+     */
+    print() {
+        console.log(this.stock.printShares());
+    }
+    /**
+     * writeStock is to save the info about company.
+     */
+    writeStock() {
+        file.writeFileSync(
+            " /home/admin1/Anush/javaScript/Object Oriented Programs/companySharesLinkedList/comp.json",
+            JSON.stringify(this.stock.printShares()),
+            function (err) {
+                if (err) {
+                    throw err;
+                }
+            }
+        );
+    }
+}
+module.exports = { companyShares };
