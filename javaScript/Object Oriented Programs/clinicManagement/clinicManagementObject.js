@@ -26,15 +26,25 @@ class clinic {
     *@description:to take all the id in the object into the array  
     *@param:taking parsed object from the user
     */
-    getIdFromDoctor(object) {//it will give all the names of stock in array
+    getIdFromDoctor(object) {
+        /**
+         * it will give all the names of stock in arra
+         */
         var nameArray = []
         var data = object.Doctor
-        for (let key in data) {//looping over each element
+        /**
+         * looping over each element
+         */
+        for (let key in data) {
             nameArray.push(data[key].Id)
         }
-        return nameArray;//returnin array
+        return nameArray;//return array
     }
-    getSpecialisationFromDoctor(object) {//it will give all specialisation in array
+    /**
+     * @description:it will give all specialisation in array.
+     *  
+     */
+    getSpecialisationFromDoctor(object) {
         var nameArray = []
         var data = object.Doctor
         for (let key in data) {//looping over each element
@@ -42,7 +52,11 @@ class clinic {
         }
         return nameArray;//returnin array
     }
-    getNameFromPatient(object) {//it will give all the totalCountames of stock in array
+    /**
+     * @description:it will give all the totalCountames of stock in array
+     *  
+     */
+    getNameFromPatient(object) {
         var nameArray = []
         var data = object.Patient
         for (let key in data) {//looping over each element
@@ -50,7 +64,11 @@ class clinic {
         }
         return nameArray;//returnin array
     }
-    getIdFromPatient(object) {//it will give all thetotalCountames of stock in array
+    /**
+     *@description:it will give all thetotalCountames of stock in array. 
+     * 
+     */
+    getIdFromPatient(object) {
         var nameArray = []
         var data = object.Patient
         for (let key in data) {//looping over each element
@@ -75,14 +93,22 @@ class clinic {
     *@param:taking parsed object from the user
     */
     clinicManagement(object) {
-
+        
         var doctor = object.Doctor;
         var patient = object.Patient
         var count = patient.length;
-        console.log('Enter 1 to search for doctor :')
-        console.log('Enter 2 to search for patient :')
-        console.log('Enter 3 to take appointment from doctor :')
-        var ans = readline.question('Enter the choice :')
+        var flag = false;
+      outer:  while(true)
+        {
+            console.log('Enter 1 to search for doctor :')
+            console.log('Enter 2 to search for patient :')
+            console.log('Enter 3 to take appointment from doctor :')
+            console.log("Enter 4 to exit :");
+            
+            var ans = readline.question('Enter the choice :')
+            if(ans==4){
+                break outer;
+            }
         if (ans == 1) {
             console.log('Enter the 1 to search doctor by his name :')
             console.log('Enter 2 to search doctor by his id :')
@@ -234,7 +260,7 @@ class clinic {
         }
         else
             console.log('Enter valid input')
-
+    }
     }
 }
 module.exports = { clinic }
