@@ -27,7 +27,7 @@ class companySharesStack {
         }
     }
     /**
-     * addToStack to add the info about the company name,share and price
+     * @description:addToStack to add the info about the company name,share and price
      * using stack implemented using linkedlist and push it to stack. 
      */
     addToStack() {
@@ -51,7 +51,7 @@ class companySharesStack {
         console.log(this.stock.printShares());
     }
     /**
-     * removeFromStack to remove the info about the company name,share and price
+     * @description:removeFromStack to remove the info about the company name,share and price
      * using stack implemented using linkedlist and push it to stack. 
      */
     removeFromStack() {

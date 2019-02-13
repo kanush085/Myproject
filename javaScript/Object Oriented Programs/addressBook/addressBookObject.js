@@ -13,11 +13,15 @@ contactRestriction = /[0-9]/g;
  */
 class Address {
     /**
-     * create a constructor to initialize and store values
+     * @description:create a constructor to initialize and store values
      */
     constructor(addressb) {
         this.addressb;
     }
+    /**
+     * @description:To create account in the address book.
+     * @param : Taking the parse object from the user addressb 
+     */
     createAddress(addressb) {
         var name = read.question("Please enter your first name: ");
         while (nameRestriction.test(name) == false) {
@@ -33,7 +37,7 @@ class Address {
 
         }
         /**
-         * add the address information
+         *  @description:add the address information
          */
         console.log("***Address Information***");
         var street = read.question("Street: ");
@@ -53,7 +57,7 @@ class Address {
         }
         var zip = read.question("Zip code: ");
         /**
-         * zip code validation that should not exceed length 6
+         * @description:zip code validation that should not exceed length 6
          */
         while (contactRestriction.test(zip) == false || zip.length != 6) {
             zip = read.question("Enter the zip code 6 digits only : ");
@@ -64,7 +68,7 @@ class Address {
             phoneNum = read.question(" Enter PhoneNumber 10 digits only :");
         }
         /**
-         * push each value into json
+         * @description:push each value into json
          */
         addressb.Person.push({
             "Name": name,
@@ -79,7 +83,8 @@ class Address {
             }
         })
         /**
-         * write file into json
+         * @description:write file into json file
+         * @param:To stringfy the addressb into object.
          */
         file.writeFile('addressBook1.json', JSON.stringify(addressb), 'utf-8', function (err) {
             if (err) throw err
@@ -89,7 +94,7 @@ class Address {
         console.log("Your information as per our record is: \r\n First Name: " + name + "\r\nLast Name: " + lastName + "\r\nStreet: " + street + "\r\nCity: " + city + "\r\nState: " + state + "\r\nNationality: " + nation);
     }
     /**
-     * comaparing name of each object and sort alphabetically
+     * @description:comaparing name of each object and sort alphabetically
      */
     compare1(a, b) {
         if (a.Name.toLowerCase() < b.Name.toLowerCase()) {
@@ -104,7 +109,8 @@ class Address {
         console.log(addressb.Person.sort(this.compare1));
     }
     /**
-     * open profile for given name
+     * @description:open profile for given name.
+     * @param: Taking the parse object from the user addressb.
      */
     openProfile(addressb) {
         var temp = -1;
@@ -127,7 +133,7 @@ class Address {
                     switch (parseInt(choice2)) {
                         case 1:
                             /**
-                             * update profile
+                             * @description:update profile
                              */
                             console.log("What do you want to update? ");
                             console.log("1: Street");
@@ -143,10 +149,9 @@ class Address {
                                     var sUpdate = read.question("Enter the new street number: ");
                                     while (nameRestriction.test(sUpdate) == false && sUpdate.length > 3) {
                                         sUpdate = read.question("No special characters Invalid name! :");
-
                                     }
                                     /**
-                                     * update whole data after changes
+                                     * @description:update whole data after changes
                                      */
                                     var obj = {
                                         "Name": addressb.Person[k].Name,
@@ -162,7 +167,7 @@ class Address {
                                     }
                                     addressb.Person[k] = obj;
                                     /**
-                                     * save into json every time after update
+                                     * @description:save into json every time after update
                                      */
                                     save();
                                     break;
@@ -170,7 +175,6 @@ class Address {
                                     var cUpdate = read.question("Enter the new city name: ");
                                     while (nameRestriction.test(cUpdate) == false && cUpdate.length > 3) {
                                         cUpdate = read.question("No special characters Invalid name! :");
-
                                     }
                                     var obj = {
                                         "Name": addressb.Person[k].Name,
@@ -277,17 +281,18 @@ class Address {
                             break;
                         case 2:
                             /**
-                             * to delete profile
+                             * @description:To delete profile
                              */
                             var update = read.question("Please enter the name  you want to delete: ");
                             for (var k = 0; k < addressb.Person.length; k++) {
-                                if (addressb.Person[k].Name ==update) {
-                                    var index=addressb.Person.indexOf(addressb.Person[k])
+                                if (addressb.Person[k].Name == update) {
+                                    var index = addressb.Person.indexOf(addressb.Person[k])
                                     addressb.Person.splice(index, 1);
                                 }
                             }
                             /**
-                             * write file
+                             *@description: write to JSON file
+                             *@param:To stringfy the addressb into object.
                              */
                             file.writeFile('addressBook1.json', JSON.stringify(addressb), 'utf-8', function (err) {
                                 if (err) throw err
@@ -296,14 +301,14 @@ class Address {
                             break;
                         case 3:
                             /**
-                             * sort the profile by name
+                             * @description:sort the profile by name
                              */
                             this.sorting(addressb);
                             save();
                             break;
                         case 4:
                             /**
-                             * save file into json
+                             * @description:save file into json
                              */
                             function save() {
                                 file.writeFile('addressBook1.json', JSON.stringify(addressb), 'utf-8', function (err) {
@@ -324,7 +329,7 @@ class Address {
                 }
             } if (temp == -1) {
                 /**
-                 * check if name is available in json or not
+                 * @description:check if name is available in json or not
                  */
                 console.log("Profile unavailable!!Please create new one.");
                 //address();

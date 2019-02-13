@@ -21,11 +21,11 @@ function deckCards() {
         var suit = ["♣️", "🔸", "❤️", "♠️"];
         var rank = ["King", "Queen", "Jack", "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
         /**
-         * To calculate length of suits and values
+         * @description:To calculate length of suits and values
          */
         var cards = suit.length * rank.length;
         /**
-         * to create new array of deck
+         * @description:to create new array of deck
          */
         var cardarr = [];
         for (let i = 0; i < suit.length; i++) {
@@ -55,7 +55,7 @@ function deckCards() {
             a = a + 9;
         }
         /**
-         * To print the shuffled deck of card.
+         * @description:To print the shuffled deck of card.
          */
         for (let i = 0; i < arr.length; i++) {
             console.log(" Deck of cards : " + " [ " + arr[i] + " ] ");

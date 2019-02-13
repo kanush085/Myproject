@@ -22,8 +22,9 @@ class stockAccount {
     constructor() {
     }
     /**
-     *stockCreate creates stock acoount with name,
-     *id and share where id is generated unquie for each account. 
+     *@description:stockCreate creates stock acoount with name,
+     *id and share where id is generated unquie for each account.
+     *@param:Taking the parse object from the user data
      * 
      */
     stockCreate(data) {
@@ -42,8 +43,9 @@ class stockAccount {
         var d = file.writeFileSync('customer.json', JSON.stringify(data));
     }
     /**
-     * Buy it adds to the stock account and 
+     *@description: Buy it adds to the stock account and 
      * customer buys the share from the company.
+     * @param:Taking the parse object from the user data,data1
      *  
      */
     buy(data, data1) {
@@ -52,7 +54,7 @@ class stockAccount {
         var object = data.customer;
         var id1 = read.question(" enter the id : ");
         /**
-         * Loop the customer array object to find id of the customer want to buy.
+         * @description:Loop the customer array object to find id of the customer want to buy.
          */
         for (let i in object) {
             if (object[i].id == id1) {
@@ -63,7 +65,7 @@ class stockAccount {
                 var sym = read.question(" enter symbol of company share you want to buy : ")
                 var object1 = data1.company;
                 /**
-                 * loop over the company array object to buy the share from the company.
+                 * @description:loop over the company array object to buy the share from the company.
                  */
                 for (let i in object1) {
                     if (object1[i].symbol == sym) {
@@ -107,8 +109,9 @@ class stockAccount {
         }
     }
     /**
-     * Sell subtract the share from the stock account and sell the 
+     * @description:Sell subtract the share from the stock account and sell the 
      * share to company which user is interested. 
+     * @param:Taking the parse object from the user data,data1.
      */
     sell(data, data1) {
         console.log(data);
@@ -156,20 +159,8 @@ class stockAccount {
             }
         }
     }
-    /**  stackps(s)
-     {
-         var stack = M.StackLinkedList;
-         stack.push(s);
-         stack.print();
-     }*/
-    /**  queuetime(time)
-     {
-         var queue = M.LinkListQ
-         queue.enQueue(time);
-         queue.print();
-     }*/
     /*
-     *To print all the details of the customer and company. 
+     * To print all the details of the customer and company. 
      */
     print(data, data1) {
         console.log("customer shares information :");

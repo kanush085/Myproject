@@ -218,7 +218,7 @@ class LinkedList {
     while (temp != null) {
       // comparing element & if found then remove
       var stock = temp.data;
-      if (stock.name == element) {
+      if (stock.name == element ||stock.symbol==element) {
         if (prev == null) {
           this.head = temp.next;
         } else {

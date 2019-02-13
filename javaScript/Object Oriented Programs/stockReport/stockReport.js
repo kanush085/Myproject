@@ -20,9 +20,11 @@ var utility = require('./utilityStock')
 var read = require('readline-sync');
 var fileread = require('fs')
 var data = fileread.readFileSync('stockReport.json', 'utf8');
-/*When receiving data from a web server, the data is always a string.
-  Parse the data with JSON.parse(), and the data becomes a JavaScript object.
+/**
+ *@description:When receiving data from a web server, the data is always a string.
+ *Parse the data with JSON.parse(), and the data becomes a JavaScript object. 
  */
+ 
 var object = JSON.parse(data)
 var sum = 0;
 var stocks = object.Stock

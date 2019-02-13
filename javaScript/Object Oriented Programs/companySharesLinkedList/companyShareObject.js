@@ -29,7 +29,7 @@ class companyShares {
         }
     }
     /**
-     * addToList to add the info about the company name,share and price
+     * @description:addToList to add the info about the company name,share and price
      * using linkedlist and add it to list. 
      */
     addTolist() {
@@ -42,10 +42,20 @@ class companyShares {
                 flag = true;
             }
         } while (!flag);
+        do{
+        var symbol=read.question("Enter the symbol :")
+        if (!isNaN(symbol)) {
+            console.log("Please enter alphabetics only ......!");
+        } else {
+            flag = true;
+        }
+    } while (!flag);
         var share = read.questionInt("Enter the share :");
         var price = read.questionInt("Enter the price :");
+        
         this.stock.add({
             name: name,
+            symbol:symbol,
             share: share,
             price: price
         });
@@ -53,23 +63,23 @@ class companyShares {
         console.log(this.stock.printShares());
     }
     /**
-     * removeFromList to remove the info about the company name,share and price
+     * @description:removeFromList to remove the info about the company name,share and price
      * using linkedlist and add it to list. 
      */
     removeFromList() {
         console.log(this.stock.printShares());
-        var company = read.question("Enter company name: ");
-        this.stock.removeStock(company);
+        var symbol = read.question("Enter company symbol: ");
+        this.stock.removeStock(symbol);
         console.log(this.stock.printShares());
     }
     /**
-     * To print all the details of the company using printlist method.
+     * @description:To print all the details of the company using printlist method.
      */
     print() {
         console.log(this.stock.printShares());
     }
     /**
-     * writeStock is to save the info about company.
+     * @description:writeStock is to save the info about company.
      */
     writeStock() {
         file.writeFileSync(

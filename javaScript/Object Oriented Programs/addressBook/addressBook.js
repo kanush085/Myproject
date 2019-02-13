@@ -29,7 +29,7 @@ function addressBook() {
     console.log("3:Exit");
     var choice1 = prompt.question(" Enter your choice: ");
     /**
-     * Switch case to choose one case to create 
+     * @description:Switch case to choose one case to create 
      * a account and openaProfile.
      */
     switch (parseInt(choice1)) {

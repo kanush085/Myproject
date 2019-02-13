@@ -2,9 +2,12 @@ var read = require('readline-sync')
 var file = require('fs')
 class Stock {
     constructor(name, share, price) {
-        this.shareName = name;
-        this.noOfshares = share;
+        this.name = name;
+        this.shares = share;
         this.price = price;
+    }
+    valueOfStock() {
+        return this.shares*this.price
     }
 }
 
@@ -27,69 +30,113 @@ class inventoryManage {
     constructor() {
     }
     /**
-     * Add method to add the name,share,price to the JSON and write it to the file. 
+     * @description:Add method to add the name,share,price to the JSON and write it to the file.
+     * @param:Taking the parse object from the user data. 
      *  
      */
     add(data) {
-        var name = read.question("Enter the name of the stock to add :");
-        var shares = read.questionInt("Enter number of shares :");
-        var quantity = read.questionInt("Enter the price of the shares :");
-        data.Stock.push(
-            {
-                shareName: name,
-                noOfshares: shares,
-                price: quantity
-            })
-        var d = file.writeFileSync('inventoryManage.json', JSON.stringify(data))
+        try {
+            var name = read.question("Enter the name of the stock to add :");
+            var shares = read.questionInt("Enter number of shares :");
+            var quantity = read.questionInt("Enter the price of the shares :");
+            data.Stock.push(
+                {
+                    shareName: name,
+                    noOfshares: shares,
+                    price: quantity
+                })
+            var d = file.writeFileSync('inventoryManage.json', JSON.stringify(data))
+        }
+        catch (err) {
+            console.log(err.message);
+
+        }
     }
     /**
-     * Remove method to remove the share from the JSON and write it to the file. 
+     * @description:Remove method to remove the share from the JSON and write it to the file.
+     * @param:Taking the parse object from the user data. 
      *  
      */
     remove(data) {
-        var name = read.question("Enter the name of the stock want to remove :")
-        for (let i = 0; i < data.Stock.length; i++) {
-            if (data.Stock[i].shareName == name) {
-                var index = data.Stock.indexOf(data.Stock[i])
-                data.Stock.splice(index, 1)
+        try {
+            var name = read.question("Enter the name of the stock want to remove :")
+            for (let i = 0; i < data.Stock.length; i++) {
+                if (data.Stock[i].shareName == name) {
+                    var index = data.Stock.indexOf(data.Stock[i])
+                    data.Stock.splice(index, 1)
+                }
+                var d = file.writeFileSync('inventoryManage.json', JSON.stringify(data))
             }
-            var d = file.writeFileSync('inventoryManage.json', JSON.stringify(data))
+        }
+        catch (err) {
+            console.log(err.message);
         }
     }
     /**
      * 
-     * Print to print all the shares by looping the number of the stocks in the JSON. 
+     * @description:Print to print all the shares by looping the number of the stocks in the JSON.
+     * @param:Taking the parse object from the user data. 
      */
     print(data) {
-        var stock = data.Stock;
-        for (const key in stock) {
-            console.log(stock[key]);
+        try {
+            var stock = data.Stock;
+            for (const key in stock) {
+                console.log(stock[key]);
+            }
+        }
+        catch (err) {
+            console.log(err.message);
         }
     }
     /**
      * 
-     * Edit method to edit the sharename,shares,price from the JSON and write to file. 
+     * @description:Edit method to edit the sharename,shares,price from the JSON and write to file.
+     * @param:Taking the parse object from the user data. 
      */
     edit(data) {
-        var stock = data.Stock;
-        var name = read.question("Enter the stock name to edit :")
-        var sharess = read.question("Enter noofShares to edit : ")
-        var money = read.question("Enter the shares price :")
-        for (let key in stock) {
-            if (stock[key].shareName == name)
-                var value = key;
-            if (stock[key].noOfshares == sharess)
-                var value1 = key;
-            if (stock[key].price == money)
-                var value2 = key;
+        try {
+            var stock = data.Stock;
+            var name = read.question("Enter the stock name to edit :")
+            var sharess = read.question("Enter noofShares to edit : ")
+            var money = read.question("Enter the shares price :")
+            for (let key in stock) {
+                if (stock[key].shareName == name)
+                    var value = key;
+                if (stock[key].noOfshares == sharess)
+                    var value1 = key;
+                if (stock[key].price == money)
+                    var value2 = key;
+            }
+            var name1 = read.question("Enter the new name of the share :");
+            stock[value].shareName = name1;
+            var name2 = read.question("Enter the new noofShares :");
+            stock[value1].noOfshares = name2;
+            var name3 = read.question("Enter  the new price of the shares :")
+            stock[value2].price = name3;
+            var d = file.writeFileSync('inventoryManage.json', JSON.stringify(data))
         }
-        var name1 = read.question("Enter the new name of the share :");
-        stock[value].shareName = name1;
-        var name2 = read.question("Enter the new noofShares :");
-        stock[value1].noOfshares = name2;
-        var name3 = read.question("Enter  the new price of the shares :")
-        stock[value2].price = name3;
-        var d = file.writeFileSync('inventoryManage.json', JSON.stringify(data))
+        catch (err) {
+            console.log(err.message);
+
+        }
+    }
+    calculateValue(data) {
+        try {
+            var totalValue = 0;
+            var stock = data.Stock;
+            for (let i in stock) {
+                var hold = stock[i]
+                var st = new Stock(hold.shareName, hold.noOfshares, hold.price)
+                var report = st.valueOfStock();
+                console.log(" Value of stock : " + hold.shareName + " : " + report + " Rs");
+                totalValue = totalValue + report;
+            }
+            console.log("Total value of all the stocks :" + totalValue + " Rs ");
+        } catch (err) {
+            console.log(err.message);
+
+        }
+
     }
 }
 module.exports = { inventoryManage, Stock }

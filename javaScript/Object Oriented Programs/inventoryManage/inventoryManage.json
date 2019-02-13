@@ -7,7 +7,7 @@
         },
         {
             "shareName": "LCH",
-            "noOfshares": "190",
+            "noOfshares": 190,
             "price": 120
         },
         {
@@ -18,12 +18,12 @@
         {
             "shareName": "zam",
             "noOfshares": 200,
-            "price": "100"
+            "price": 100
         },
         {
             "shareName": "dsa",
-            "noOfshares": "100",
-            "price": "200"
+            "noOfshares": 100,
+            "price": 200
         },
         {
             "shareName": "abc",

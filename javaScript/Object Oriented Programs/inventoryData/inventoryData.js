@@ -19,8 +19,10 @@
 var filestream = require('fs');
 var access = require('../../Utility/utilityOops');
 var data = filestream.readFileSync('inventoryManage.json')
-/*When receiving data from a web server, the data is always a string.
-  Parse the data with JSON.parse(), and the data becomes a JavaScript object.
+/**
+ * @description:When receiving data from a web server, the data is always a string.
+ * Parse the data with JSON.parse(), and the data becomes a JavaScript object.
+ *
  */
 var object = JSON.parse(data);
 function inventory() {

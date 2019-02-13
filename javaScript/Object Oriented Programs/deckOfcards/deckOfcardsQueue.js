@@ -24,7 +24,7 @@ function deckCards() {
         var suit = ["♣️", "🔸", "❤️", "♠️"];
         var rank = ["King", "Queen", "Jack", "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
         /**
-         * To calculate length of suits and values
+         * @description:To calculate length of suits and values
          */
         var cards = suit.length * rank.length;
         /**
@@ -50,14 +50,14 @@ function deckCards() {
             cardarr[num] = temp;
         }
         /**
-         * Create LinkedList object for each player.
+         * @description:Create LinkedList object for each player.
          */
         var player1 = new access.LinledListQueue;
         var player2 = new access.LinledListQueue;
         var player3 = new access.LinledListQueue;
         var player4 = new access.LinledListQueue;
         /**
-         * Enqueue all the cards in queue using linkedlistqueue.
+         * @description:Enqueue all the cards in queue using linkedlistqueue.
          */
         for (let i = 0; i < cardarr.length; i++) {
             if (i >= 0 && i < 13)
@@ -70,7 +70,7 @@ function deckCards() {
                 player4.enQueue(cardarr[i]);
         }
         /**
-         * Sort all the deck of cards using sorting method.
+         * @description:Sort all the deck of cards using sorting method.
          */
         var data = player1.printList()
         var arr = data.split(" ")

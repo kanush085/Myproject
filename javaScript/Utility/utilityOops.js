@@ -26,7 +26,7 @@ module.exports = {
         var j = 0;
         var k = 0;
         /**
-         * Loop the rice array object to find  the price.
+         * @description:Loop the rice array object to find  the price.
          */
         for (let key in rice) {
             var num = rice[key].Weight * rice[key].Price
@@ -36,7 +36,7 @@ module.exports = {
         }
         console.log(" Total value of rice :" + totalvaluerice + "\n");
         /**
-         * Loop the pulses array object to find  the price.
+         * @description:Loop the pulses array object to find  the price.
          */
         for (let key in pulses) {
             var num = pulses[key].Weight * pulses[key].Price;
@@ -46,7 +46,7 @@ module.exports = {
         }
         console.log(" Total value of pulses :" + totalvaluepulses + "\n");
         /**
-         * Loop the wheat array object to find the price.
+         * @description:Loop the wheat array object to find the price.
          */
         for (let key in wheat) {
             var number = wheat[key].Weight * wheat[key].Price;
@@ -57,20 +57,23 @@ module.exports = {
         console.log(" Total value of rice :" + totalvaluewheat);
     },
 
-  /************************* Regular Expression Demonstration ***************************
-   *  2. Regular Expression Demonstration
-   *-------------------------------------
-   * @Purpose   : To creat a file having Inventory Details for Rice, Pulses and Wheats
-   *             with properties such as name, weight, price per kg.
-   *
-   * @Use Library : Java JSON Library
-   *
-   * @description: Declaring the function and passing the userinput as argument.
-   *
-   * @function: diplayname takes the userinput and print it with some sentence.
-   *
-   * @param   : object --> objects such as Rice, Wheats and Pulse which are at inventory
-   */
+    /************************* Regular Expression Demonstration ***************************
+     *  2. Regular Expression Demonstration
+     *-------------------------------------
+     * @Purpose   :  To creat a file having text replace the string with the user
+     *               input and print the modified Message
+     * 
+     * @Use Library :Java JSON Library
+     *
+     * @description: Read in the following message: Hello <<name>>, We have your full
+                     name as <<full name>> in our system. your contact number is 91-xxxxxxxxxx.
+                     Please,let us know in case of any clarification Thank you BridgeLabz 01/01/2016.
+                     Use Regex to replace name, full name, Mobile#, and Date with proper value.
+     *
+     * @function:    Diplayname takes the user input and print it with some sentence.
+     *
+     * @param   :    Use Regex  method to do the following functions.s
+     */
     regularExpression(name, fullname, number, date) {
         var filestream = require('fs');
         try {

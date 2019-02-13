@@ -26,16 +26,16 @@ function main() {
     var com = new utiltiy.companyShares();
     var data = companyObject.company;
     /**
-     * Loop the company array objects and add it to linkedlist.
+     * @description:Loop the company array objects and add it to linkedlist.
      */
     outer: while (true) {
       console.log("1. Add");
       console.log("2. Remove");
       console.log("3. Print");
       console.log("4. Save and exit");
-      var num = read.questionInt("Enter valid choice :");
+      var num = read.questionInt("Enter your choice :");
        /**
-       * Switch to choose the case to add,remove and
+       * @description:Switch to choose the case to add,remove and
        * print
        */
       switch (num) {

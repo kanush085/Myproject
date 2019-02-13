@@ -3,7 +3,7 @@
         {
             "name": "TCS",
             "symbol": "T",
-            "share": 10,
+            "share": 14,
             "price": 200
         },
         {
@@ -15,7 +15,7 @@
         {
             "name": "VRL",
             "symbol": "V",
-            "share": 8,
+            "share": 12,
             "price": 600
         }
     ]
