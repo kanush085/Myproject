@@ -21,7 +21,7 @@ var read = require("readline-sync");
 var utiltiy = require("../companySharesLinkedList/companyShareObject");
 function main() {
   try {
-    var companyJson = file.readFileSync( "/home/admin1/Anush/javaScript/Object Oriented Programs/companySharesLinkedList/comp.json" );
+    var companyJson = file.readFileSync("/home/admin1/Anush/javaScript/Object Oriented Programs/companySharesLinkedList/comp.json");
     var companyObject = JSON.parse(companyJson);
     var com = new utiltiy.companyShares();
     var data = companyObject.company;
@@ -34,10 +34,10 @@ function main() {
       console.log("3. Print");
       console.log("4. Save and exit");
       var num = read.questionInt("Enter your choice :");
-       /**
-       * @description:Switch to choose the case to add,remove and
-       * print
-       */
+      /**
+      * @description:Switch to choose the case to add,remove and
+      * print
+      */
       switch (num) {
         case 1:
           com.addTolist(data, companyObject);

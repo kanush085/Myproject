@@ -1,13 +1,24 @@
 {
     "Person": [
         {
+            "Name": "Anush",
+            "LastName": "Kumar",
+            "Address": {
+                "Street": "23",
+                "City": "Bangalore",
+                "State": "Karnataka",
+                "Nationality": "Indian",
+                "Zip": "573201",
+                "PhoneNum": "8970595625"
+            }
+        },
+        {
             "Name": "Jeevi",
             "LastName": "C",
             "Address": {
                 "Street": "22",
                 "City": "Bangalore",
-                "State": "Karnataka",
-                "Nationality": "Indian",
+                "State": "Kara",
                 "Zip": "560060",
                 "PhoneNum": "8705932512"
             }

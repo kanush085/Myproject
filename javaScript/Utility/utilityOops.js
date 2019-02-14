@@ -16,45 +16,49 @@ module.exports = {
      * @param : object --> objects such as Rice, Wheats and Pulse which are at inventory
      */
     inventoryData(object) {
-        var rice = object.Rice
-        var pulses = object.Pulses;
-        var wheat = object.Wheat;
-        var totalvaluerice = 0;
-        var totalvaluewheat = 0;
-        var totalvaluepulses = 0;
-        var i = 0;
-        var j = 0;
-        var k = 0;
-        /**
-         * @description:Loop the rice array object to find  the price.
-         */
-        for (let key in rice) {
-            var num = rice[key].Weight * rice[key].Price
-            console.log(" cost of " + rice[key].Ricename + " is " + num + " Rs ");
-            i++;
-            totalvaluerice = totalvaluerice + num
+        try {
+            var rice = object.Rice
+            var pulses = object.Pulses;
+            var wheat = object.Wheat;
+            var totalvaluerice = 0;
+            var totalvaluewheat = 0;
+            var totalvaluepulses = 0;
+            var i = 0;
+            var j = 0;
+            var k = 0;
+            /**
+             * @description:Loop the rice array object to find  the price.
+             */
+            for (let key in rice) {
+                var num = rice[key].Weight * rice[key].Price
+                console.log(" cost of " + rice[key].Ricename + " is " + num + " Rs ");
+                i++;
+                totalvaluerice = totalvaluerice + num
+            }
+            console.log(" Total value of rice :" + totalvaluerice + "\n");
+            /**
+             * @description:Loop the pulses array object to find  the price.
+             */
+            for (let key in pulses) {
+                var num = pulses[key].Weight * pulses[key].Price;
+                console.log(" cost of " + pulses[key].Pulsesname + " is " + num + " Rs ");
+                j++;
+                totalvaluepulses = totalvaluepulses + num;
+            }
+            console.log(" Total value of pulses :" + totalvaluepulses + "\n");
+            /**
+             * @description:Loop the wheat array object to find the price.
+             */
+            for (let key in wheat) {
+                var number = wheat[key].Weight * wheat[key].Price;
+                console.log(" cost of " + wheat[key].Wheatname + " is " + number + " Rs ");
+                k++;
+                totalvaluewheat = totalvaluewheat + number;
+            }
+            console.log(" Total value of rice :" + totalvaluewheat);
+        } catch (err) {
+            console.log(err.message);
         }
-        console.log(" Total value of rice :" + totalvaluerice + "\n");
-        /**
-         * @description:Loop the pulses array object to find  the price.
-         */
-        for (let key in pulses) {
-            var num = pulses[key].Weight * pulses[key].Price;
-            console.log(" cost of " + pulses[key].Pulsesname + " is " + num + " Rs ");
-            j++;
-            totalvaluepulses = totalvaluepulses + num;
-        }
-        console.log(" Total value of pulses :" + totalvaluepulses + "\n");
-        /**
-         * @description:Loop the wheat array object to find the price.
-         */
-        for (let key in wheat) {
-            var number = wheat[key].Weight * wheat[key].Price;
-            console.log(" cost of " + wheat[key].Wheatname + " is " + number + " Rs ");
-            k++;
-            totalvaluewheat = totalvaluewheat + number;
-        }
-        console.log(" Total value of rice :" + totalvaluewheat);
     },
 
     /************************* Regular Expression Demonstration ***************************

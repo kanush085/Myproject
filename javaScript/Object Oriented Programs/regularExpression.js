@@ -50,11 +50,10 @@ function regularExpression() {
         /**
          * Input validations.
          */
-        while(isNaN(number) || number.length!=10)
-        {
-            
-                console.log("Please enter your correct phone number :");
-                number=readline.question("Enter your phone number :")    
+        while (isNaN(number) || number.length != 10) {
+
+            console.log("Please enter your correct phone number :");
+            number = readline.question("Enter your phone number :")
         }
         /**
          * create new date object.

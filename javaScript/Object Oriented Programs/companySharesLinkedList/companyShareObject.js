@@ -33,64 +33,81 @@ class companyShares {
      * using linkedlist and add it to list. 
      */
     addTolist() {
-        var flag = false;
-        do {
-            var name = read.question("Enter the name want to add : ");
-            if (!isNaN(name)) {
-                console.log("Please enter alphabetics only ......!");
-            } else {
-                flag = true;
-            }
-        } while (!flag);
-        do{
-        var symbol=read.question("Enter the symbol :")
-        if (!isNaN(symbol)) {
-            console.log("Please enter alphabetics only ......!");
-        } else {
-            flag = true;
+        try {
+            var flag = false;
+            do {
+                var name = read.question("Enter the name want to add : ");
+                if (!isNaN(name)) {
+                    console.log("Please enter alphabetics only ......!");
+                } else {
+                    flag = true;
+                }
+            } while (!flag);
+            do {
+                var symbol = read.question("Enter the symbol :")
+                if (!isNaN(symbol)) {
+                    console.log("Please enter alphabetics only ......!");
+                } else {
+                    flag = true;
+                }
+            } while (!flag);
+            var share = read.questionInt("Enter the share :");
+            var price = read.questionInt("Enter the price :");
+
+            this.stock.add({
+                name: name,
+                symbol: symbol,
+                share: share,
+                price: price
+            });
+            console.log("Elemets after adding to list :");
+            console.log(this.stock.printShares());
+        } catch (err) {
+            console.log(err.message);
         }
-    } while (!flag);
-        var share = read.questionInt("Enter the share :");
-        var price = read.questionInt("Enter the price :");
-        
-        this.stock.add({
-            name: name,
-            symbol:symbol,
-            share: share,
-            price: price
-        });
-        console.log("Elemets after adding to list :");
-        console.log(this.stock.printShares());
     }
     /**
      * @description:removeFromList to remove the info about the company name,share and price
      * using linkedlist and add it to list. 
      */
     removeFromList() {
-        console.log(this.stock.printShares());
-        var symbol = read.question("Enter company symbol: ");
-        this.stock.removeStock(symbol);
-        console.log(this.stock.printShares());
+        try {
+            console.log(this.stock.printShares());
+            var symbol = read.question("Enter company symbol: ");
+            this.stock.removeStock(symbol);
+            console.log(this.stock.printShares());
+        } catch (err) {
+            console.log(err.message);
+        }
     }
     /**
      * @description:To print all the details of the company using printlist method.
      */
     print() {
-        console.log(this.stock.printShares());
+        try {
+            console.log(this.stock.printShares());
+        } catch (err) {
+            console.log(err.message);
+        }
     }
     /**
      * @description:writeStock is to save the info about company.
      */
     writeStock() {
-        file.writeFileSync(
-            " /home/admin1/Anush/javaScript/Object Oriented Programs/companySharesLinkedList/comp.json",
-            JSON.stringify(this.stock.printShares()),
-            function (err) {
-                if (err) {
-                    throw err;
+        try {
+            file.writeFileSync(
+                " /home/admin1/Anush/javaScript/Object Oriented Programs/companySharesLinkedList/comp.json",
+                JSON.stringify(this.stock.printShares()),
+                function (err) {
+                    if (err) {
+                        throw err;
+                    }
                 }
-            }
-        );
+            );
+        } catch (err) {
+            console.log(err.message);
+        }
     }
+
 }
 module.exports = { companyShares };

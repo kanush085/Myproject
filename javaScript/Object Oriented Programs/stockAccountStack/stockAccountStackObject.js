@@ -31,54 +31,70 @@ class companySharesStack {
      * using stack implemented using linkedlist and push it to stack. 
      */
     addToStack() {
-        var flag = false;
-        do {
-            var name = read.question("Enter the name want to add : ");
-            if (!isNaN(name)) {
-                console.log("Please enter alphabetics only ......!");
-            } else {
-                flag = true;
-            }
-        } while (!flag);
-        var share = read.questionInt("Enter the share :");
-        var price = read.questionInt("Enter the price :");
-        this.stock.push({
-            name: name,
-            share: share,
-            price: price
-        });
-        console.log("Elemets after adding to list :");
-        console.log(this.stock.printShares());
+        try {
+            var flag = false;
+            do {
+                var name = read.question("Enter the name want to add : ");
+                if (!isNaN(name)) {
+                    console.log("Please enter alphabetics only ......!");
+                } else {
+                    flag = true;
+                }
+            } while (!flag);
+            var share = read.questionInt("Enter the share :");
+            var price = read.questionInt("Enter the price :");
+            this.stock.push({
+                name: name,
+                share: share,
+                price: price
+            });
+            console.log("Elemets after adding to list :");
+            console.log(this.stock.printShares());
+        } catch (err) {
+            console.log(err.message);
+        }
     }
     /**
      * @description:removeFromStack to remove the info about the company name,share and price
      * using stack implemented using linkedlist and push it to stack. 
      */
     removeFromStack() {
-        console.log(this.stock.printShares());
-        var company = read.question("Enter company name: ");
-        this.stock.pop(company);
-        console.log(this.stock.printShares());
+        try {
+            console.log(this.stock.printShares());
+            var company = read.question("Enter company name: ");
+            this.stock.pop(company);
+            console.log(this.stock.printShares());
+        } catch (err) {
+            console.log(err.message);
+        }
     }
     /**
      * To print all the details of the company using printlist method.
      */
     print() {
-        console.log(this.stock.printShares());
+        try {
+            console.log(this.stock.printShares());
+        } catch (err) {
+            console.log(err.message);
+        }
     }
     /**
      * writeStock is to save the info about company.
      */
     writeStock() {
-        file.writeFileSync(
-            "/home/admin1/Anush/javaScript/Object Oriented Programs/stockAccountStack/customer1.json",
-            JSON.stringify(this.stock.printShares()),
-            function (err) {
-                if (err) {
-                    throw err;
+        try {
+            file.writeFileSync(
+                "/home/admin1/Anush/javaScript/Object Oriented Programs/stockAccountStack/customer1.json",
+                JSON.stringify(this.stock.printShares()),
+                function (err) {
+                    if (err) {
+                        throw err;
+                    }
                 }
-            }
-        );
+            );
+        } catch (err) {
+            console.log(err.message);
+        }
     }
 }
 module.exports = { companySharesStack }
